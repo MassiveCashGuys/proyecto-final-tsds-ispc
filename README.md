@@ -42,7 +42,7 @@ Proyecto Final del Modulo Programador del 1er año de Tecnicatura Superior en De
     * email: quiroga.lucasj@gmail.com
     * Usuario de Github: https://github.com/LucasJQ13 
 
-*  *Villareal Juan*: 
+*  *Villarreal Juan*: 
     * DNI: 45697639
     * email: Vin197172@gmail.com
     * Usuario de Github: https://github.com/Jmv315 
