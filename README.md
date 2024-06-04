@@ -4,7 +4,11 @@ Proyecto Final del Modulo Programador del 1er año de Tecnicatura Superior en De
 <!-- Configurar el archivo readme especificando el propósito, el contexto, autores -->
 
 * #### <u>Propósito:</u>
+Desarrollar una aplicación de demostración para ISPC Cba, un broker de bolsa registrado que actúa como intermediario entre los inversores y la Bolsa de Valores de Buenos Aires (MERVAL). 
+La aplicación permitirá la simulación de transacciones de compra y venta de acciones, proporcionando una plataforma interactiva para facilitar la comprensión del mercado de valores y sus operaciones.
 * #### <u>Contexto:</u>
+ISPC Cba, como broker autorizado, busca ofrecer una herramienta de simulación funcional para inversores potenciales (personas físicas, empresas o instituciones). 
+Este proyecto se enmarca en el contexto de mejorar los servicios ofrecidos por ISPC Cba, proporcionando una plataforma que refleja las dinámicas del mercado de valores. La aplicación servirá como prototipo para que ISPC Cba utilice la herramienta para atraer y educar a nuevos inversores.
 * #### <u>Autores:</u>
 
 *  *Luesma Santiago*: 
