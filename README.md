@@ -43,7 +43,7 @@ Este proyecto se enmarca en el contexto de mejorar los servicios ofrecidos por I
     * email: FernandoQuinteros202024@gmail.com
     * Usuario de Github: https://github.com/Fernanchelo28 
 
-*  *Quiroga Lucas*: 
+*  *Quiroga Lucas Javier*: 
     * DNI: 39215587
     * email: quiroga.lucasj@gmail.com
     * Usuario de Github: https://github.com/LucasJQ13 
