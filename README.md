@@ -38,7 +38,16 @@ Este proyecto se enmarca en el contexto de mejorar los servicios ofrecidos por I
 *  *Quiroga Lucas Javier*: 
     * DNI: 39215587
     * email: quiroga.lucasj@gmail.com
-    * Usuario de Github: https://github.com/LucasJQ13 
+    * Usuario de Github: https://github.com/LucasJQ13
+ 
+
+Crear archivo .env para sus variables de entorno y resguardar las credenciales
+nombre de las variables globales
+USER =" "
+PASSWORD =" "
+HOST = " "
+DATABASE =" "
+PORT =" "
 
 
 
