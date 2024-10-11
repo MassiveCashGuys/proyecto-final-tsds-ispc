@@ -33,7 +33,7 @@ Este proyecto se enmarca en el contexto de mejorar los servicios ofrecidos por I
 *  *Portillo Marcelo Martin*: 
     * DNI: 27644034
     * email: mportillo79@gmail.com
-    * Usuario de Github: https://github.com/marceloportillodev
+    * Usuario de Github: https://github.com/mapolab
  
 *  *Quiroga Lucas Javier*: 
     * DNI: 39215587
