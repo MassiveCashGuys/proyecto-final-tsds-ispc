@@ -3,10 +3,9 @@ from mysql.connector import Error
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-
 
 def connect_to_db():
+    load_dotenv()
     try:
         connection = mysql.connector.connect(
             host=os.getenv("HOST"),
@@ -17,8 +16,7 @@ def connect_to_db():
         )
 
         if connection.is_connected():
-            return True
-            # return connection
+            return connection
     except Error as e:
         print(f"Error al conectar a la base de datos: {e}")
         return False

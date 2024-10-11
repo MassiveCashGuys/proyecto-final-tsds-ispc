@@ -1,3 +1,4 @@
 .env
 env
 negocio
+backend/__pycache__/
