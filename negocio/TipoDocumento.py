@@ -14,9 +14,6 @@ class TipoDocumento:
     def get_id_tipo_documento(self):
         return self.__id_tipo_documento
 
-    def set_id_tipo_documento(self, id_tipo_documento):
-        self.__id_tipo_documento = id_tipo_documento
-
     def get_nombre(self):
         return self.__nombre
 
