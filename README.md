@@ -15,11 +15,6 @@ ISPC Cba, como broker autorizado, busca ofrecer una herramienta de simulación f
 Este proyecto se enmarca en el contexto de mejorar los servicios ofrecidos por ISPC Cba, proporcionando una plataforma que refleja las dinámicas del mercado de valores. La aplicación servirá como prototipo para que ISPC Cba utilice la herramienta para atraer y educar a nuevos inversores.
 * #### <u>Autores:</u>
 
-*  *Luesma Santiago*: 
-    * DNI: 37854752 
-    * email: luesma.dev@gmail.com
-    * Usuario de Github: https://github.com/santiagoluesma 
-
 *  *Marini Alan*: 
     * DNI: 35785659 
     * email: aland.marini@gmail.com
@@ -38,22 +33,23 @@ Este proyecto se enmarca en el contexto de mejorar los servicios ofrecidos por I
 *  *Portillo Marcelo Martin*: 
     * DNI: 27644034
     * email: mportillo79@gmail.com
-    * Usuario de Github: https://github.com/marceloportillodev
+    * Usuario de Github: https://github.com/mapolab
  
-*  *Quinteros Fernando*: 
-    * DNI: 38179168
-    * email: FernandoQuinteros202024@gmail.com
-    * Usuario de Github: https://github.com/Fernanchelo28 
-
 *  *Quiroga Lucas Javier*: 
     * DNI: 39215587
     * email: quiroga.lucasj@gmail.com
-    * Usuario de Github: https://github.com/LucasJQ13 
+    * Usuario de Github: https://github.com/LucasJQ13
+ 
 
-*  *Villarreal Juan*: 
-    * DNI: 45697639
-    * email: Vin197172@gmail.com
-    * Usuario de Github: https://github.com/Jmv315 
+Crear archivo .env para sus variables de entorno y resguardar las credenciales
+nombre de las variables globales
+USER =" "
+PASSWORD =" "
+HOST = " "
+DATABASE =" "
+PORT =" "
+
+
 
 
 
