@@ -20,3 +20,4 @@ def connect_to_db():
     except Error as e:
         print(f"Error al conectar a la base de datos: {e}")
         return False
+
