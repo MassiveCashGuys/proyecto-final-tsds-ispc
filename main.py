@@ -1,22 +1,10 @@
-import os
-from backend.conexion import connect_to_db, disconnect_db
+from backend.clasesDAO import tipo_documento_dao
+from negocio import tipoDocumento
+def main():
+    tipoDocumentoDao=tipo_documento_dao.Tipo_Documento_Dao()
+    tipo_documento = tipoDocumento.TipoDocumento(None, "LC" , "Libreta Cívica")
+    tipoDocumentoDao.create(tipo_documento);
+    print(tipo_documento.get_nombre());
 
 if __name__ == "__main__":
-    connection = connect_to_db()
-
-# Ej de query
-"""
-    if connection:
-        try:
-            cursor = connection.cursor()
-            cursor.execute("Select * from desprogramadores")
-            result = cursor.fetchall()
-
-            for desprogramador in result:
-                print(desprogramador)
-
-        except Exception as e:
-            print(f"Tu query es un asco:{e}")
-    else:
-        print("No se pudo conectar a la db")
-"""
+    main()
