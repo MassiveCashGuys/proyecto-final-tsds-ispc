@@ -8,6 +8,10 @@ class DataAccesDao(ABC):
     @abstractmethod
     def get(self, id_object):
         pass
+    
+    @abstractmethod
+    def getAll(self):
+        pass
 
     @abstractmethod
     def update(self, object):
