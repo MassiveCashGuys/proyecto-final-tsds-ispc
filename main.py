@@ -1,10 +1,9 @@
-from backend.clasesDAO import tipo_documento_dao
-from negocio import tipoDocumento
+from controllers import controllerInicioSesion
 
 def main():
-    tipoDocumentoDao=tipo_documento_dao.Tipo_Documento_Dao()
-    doc= tipoDocumento.TipoDocumento(1,"LC","Libreta Cívica")
-    tipoDocumentoDao.update(doc)
+   controllerInicioSesion.inicio_sesion()
+   
+   
    
 if __name__ == "__main__":
     main()

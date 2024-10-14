@@ -4,17 +4,17 @@ from backend import interfazDao
 from backend import conexion
 from negocio import tipoDocumento
 
-class Tipo_Documento_Dao(interfazDao.DataAccesDao):
+class Portafolio_Dao(interfazDao.DataAccesDao):
     def __init__(self):
         pass
     
-    def create(self,tipo_documento):
+    def create(self,portafolio):
       
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" INSERT INTO tipo_documento (nombre, descripcion) VALUES (%s, %s)"
-             cursor.execute(query,(tipo_documento.get_nombre(),tipo_documento.get_descripcion()))
+             query=" INSERT INTO portafolio (nombre, descripcion) VALUES (%s, %s)"
+             cursor.execute(query,(portafolio.get_saldo_inicial(),portafolio.get_fecha_inicio()))
              conn.commit()
              if cursor.rowcount == 1:
                 return True
@@ -25,12 +25,12 @@ class Tipo_Documento_Dao(interfazDao.DataAccesDao):
              raise err 
 
  
-    def get(self, id_tipo_documento)->tipoDocumento.TipoDocumento:
+    def get(self, id_portafolio)->tipoDocumento.TipoDocumento:
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" SELECT * FROM tipo_documento WHERE id_tipo_documento= %s"
-             cursor.execute(query,(id_tipo_documento,))
+             query=" SELECT * FROM portafolio WHERE id_portafolio= %s"
+             cursor.execute(query,(id_portafolio,))
              row = cursor.fetchone()
              conn.commit()
              if row:
@@ -46,7 +46,7 @@ class Tipo_Documento_Dao(interfazDao.DataAccesDao):
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" SELECT * FROM tipo_documento"
+             query=" SELECT * FROM portafolio"
              cursor.execute(query)
              rows = cursor.fetchall()
              if rows:
@@ -58,24 +58,24 @@ class Tipo_Documento_Dao(interfazDao.DataAccesDao):
              raise err 
         
   
-    def update(self, tipo_documento):
+    def update(self, portafolio):
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" UPDATE tipo_documento SET nombre=%s, descripcion=%s WHERE id_tipo_documento= %s "
-             cursor.execute(query,(tipo_documento.get_nombre(),tipo_documento.get_descripcion(), tipo_documento.get_id_tipo_documento()))
+             query=" UPDATE portafolio SET saldo_inicial=%s, descripcion=%s WHERE id_portafolio= %s "
+             cursor.execute(query,(portafolio.get_saldo_inicial(),portafolio.get_fecha_inicio()))
              conn.commit()
          except mysql.connector.Error as err:
              print("err.")
              raise err 
 
     
-    def delete(self, id_tipo_documento):
+    def delete(self, id_portafolio):
         try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" DELETE FROM tipo_documento WHERE id_tipo_documento= %s"
-             cursor.execute(query,(id_tipo_documento,))
+             query=" DELETE FROM portafolio WHERE id_portafolio= %s"
+             cursor.execute(query,(id_portafolio,))
              row = cursor.rowcount
              conn.commit()
              if row > 0:
