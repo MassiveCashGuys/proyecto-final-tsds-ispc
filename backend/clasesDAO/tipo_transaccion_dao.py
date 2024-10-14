@@ -2,19 +2,19 @@ from abc import ABC
 import mysql.connector
 from backend import interfazDao
 from backend import conexion
-from negocio import tipoDocumento
+from negocio import tipoTransaccion
 
-class Tipo_Documento_Dao(interfazDao.DataAccesDao):
+class Tipo_Transaccion_Dao(interfazDao.DataAccesDao):
     def __init__(self):
         pass
     
-    def create(self,tipo_documento):
+    def create(self,tipo_transaccion):
       
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" INSERT INTO tipo_documento (nombre, descripcion) VALUES (%s, %s)"
-             cursor.execute(query,(tipo_documento.get_nombre(),tipo_documento.get_descripcion()))
+             query=" INSERT INTO tipo_transaccion (nombre, descripcion) VALUES (%s, %s)"
+             cursor.execute(query,(tipo_transaccion.get_nombre(),tipo_transaccion.get_descripcion()))
              conn.commit()
              if cursor.rowcount == 1:
                 return True
@@ -25,16 +25,16 @@ class Tipo_Documento_Dao(interfazDao.DataAccesDao):
              raise err 
 
  
-    def get(self, id_tipo_documento)->tipoDocumento.TipoDocumento:
+    def get(self, id_tipo_transaccion)->tipoTransaccion.TipoTransaccion:
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" SELECT * FROM tipo_documento WHERE id_tipo_documento= %s"
-             cursor.execute(query,(id_tipo_documento,))
+             query=" SELECT * FROM tipo_transaccion WHERE id_tipo_transaccion= %s"
+             cursor.execute(query,(id_tipo_transaccion,))
              row = cursor.fetchone()
              conn.commit()
              if row:
-                return tipoDocumento.TipoDocumento(row[0],row[1],row[2])
+                return tipoTransaccion.TipoTransaccion(row[0],row[1],row[2])
              else:
                 return None
          except mysql.connector.Error as err:
@@ -46,11 +46,11 @@ class Tipo_Documento_Dao(interfazDao.DataAccesDao):
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" SELECT * FROM tipo_documento"
+             query=" SELECT * FROM tipo_transaccion"
              cursor.execute(query)
              rows = cursor.fetchall()
              if rows:
-                return [tipoDocumento.TipoDocumento(row[0],row[1],row[2]) for row in rows]
+                return [tipoTransaccion.TipoTransaccion(row[0],row[1],row[2]) for row in rows]
              else:
                 return None
          except mysql.connector.Error as err:
@@ -58,24 +58,24 @@ class Tipo_Documento_Dao(interfazDao.DataAccesDao):
              raise err 
         
   
-    def update(self, tipo_documento):
+    def update(self, tipo_transaccion):
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" UPDATE tipo_documento SET nombre=%s, descripcion=%s WHERE id_tipo_documento= %s "
-             cursor.execute(query,(tipo_documento.get_nombre(),tipo_documento.get_descripcion(), tipo_documento.get_id_tipo_documento()))
+             query=" UPDATE tipo_transaccion SET nombre=%s, descripcion=%s WHERE id_tipo_transaccion= %s "
+             cursor.execute(query,(tipo_transaccion.get_nombre(),tipo_transaccion.get_descripcion(), tipo_transaccion.get_id_tipo_documento()))
              conn.commit()
          except mysql.connector.Error as err:
              print("err.")
              raise err 
 
     
-    def delete(self, id_tipo_documento):
+    def delete(self, id_tipo_transaccion):
         try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" DELETE FROM tipo_documento WHERE id_tipo_documento= %s"
-             cursor.execute(query,(id_tipo_documento,))
+             query=" DELETE FROM tipo_transaccion WHERE id_tipo_transaccion= %s"
+             cursor.execute(query,(id_tipo_transaccion,))
              row = cursor.rowcount
              conn.commit()
              if row > 0:
