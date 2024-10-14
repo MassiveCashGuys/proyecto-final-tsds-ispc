@@ -2,7 +2,7 @@ class Inversor:
     
     def __init__(self, cuit, tipo_documento, numero_documento, nombre,  apellido, portafolio, tipo_inversor):
         self.cuit = cuit;
-        self.__tipo_Documento = tipo_documento;
+        self.__tipo_documento = tipo_documento;
         self.__numero_documento = numero_documento;
         self.__nombre = nombre;
         self.__apellido = apellido;
