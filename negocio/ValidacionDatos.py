@@ -1,3 +1,15 @@
-def validar_cuit(cuit):
-    # Verificar que la longitud sea exactamente 11 y que sean solo dígitos
-    return len(cuit) == 11 and cuit.isdigit()
+import re
+
+class ValidadorCUIT:
+    def __init__(self, cuit):
+        self.cuit = cuit
+
+    def es_valido(self):
+        return len(self.cuit) == 11 and self.cuit.isdigit()
+    
+if __name__ == '__main__':
+    cuit_validador = ValidadorCUIT("20123456789")
+    if cuit_validador.es_valido():
+        print("El CUIT es válido.")
+    else:
+        print("El CUIT no es válido.")
