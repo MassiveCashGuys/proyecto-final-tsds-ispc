@@ -1,5 +1,6 @@
 import unittest
-from ValidacionDatos import ValidadorCUIT
+from ValidacionDatos import ValidadorCUIT, ValidadorEmail
+
 
 class TestValidarCuit(unittest.TestCase):
 
@@ -15,5 +16,24 @@ class TestValidarCuit(unittest.TestCase):
         self.assertFalse(ValidadorCUIT("20A12345678").es_valido())
         self.assertFalse(ValidadorCUIT("20#23456789").es_valido())
     
+class TestValidarEmail(unittest.TestCase):
+    def test_email_correcto(self):
+        self.assertTrue(ValidadorEmail("ejemplo@dominio.com").es_valido())
+        self.assertTrue(ValidadorEmail("nombre.apellido@sub.dominio.com").es_valido())
+        self.assertTrue(ValidadorEmail("usuario+etiqueta@dominio.com").es_valido())
+    
+    def test_email_incorrecto_sin_arroba(self):
+        self.assertFalse(ValidadorEmail("ejemplodominio.com").es_valido())
+        self.assertFalse(ValidadorEmail("ejemplo.dominio.com").es_valido())
+
+    def test_email_incorrecto_sin_dominio(self):
+        self.assertFalse(ValidadorEmail("ejemplo@").es_valido())
+        self.assertFalse(ValidadorEmail("ejemplo@dominio").es_valido())
+
+    def test_email_incorrecto_caracteres_invalidos(self):
+        self.assertFalse(ValidadorEmail("ejemplo@dominio!.com").es_valido())
+        self.assertFalse(ValidadorEmail("ejemplo@dominio#.com").es_valido())
+
 if __name__ == '__main__':
     unittest.main()
+    
