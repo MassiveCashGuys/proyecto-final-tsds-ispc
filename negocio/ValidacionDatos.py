@@ -4,7 +4,7 @@ class ValidadorCUIT:
     def __init__(self, cuit):
         self.cuit = cuit
 
-    def es_valido(self):
+    def cuit_es_valido(self):
         return len(self.cuit) == 11 and self.cuit.isdigit()
     
 
@@ -12,7 +12,7 @@ class ValidadorEmail:
     def __init__(self, email):
         self.email = email
 
-    def es_valido(self):
+    def mail_es_valido(self):
         return self._validar_formato_email(self.email)
 
     def _validar_formato_email(self, email):
@@ -36,14 +36,14 @@ if __name__ == '__main__':
 
     for email in ejemplos:
         email_validador = ValidadorEmail(email)
-        if email_validador.es_valido():
+        if email_validador.mail_es_valido():
             print(f"El correo electrónico '{email}' es válido.")
         else:
             print(f"El correo electrónico '{email}' no es válido.")
 
 
-    cuit_validador = ValidadorCUIT("20357856597")
-    if cuit_validador.es_valido():
+    cuit_validador = ValidadorCUIT("20315756597")
+    if cuit_validador.cuit_es_valido():
         print("El CUIT es válido.")
     else:
         print("El CUIT no es válido.")
