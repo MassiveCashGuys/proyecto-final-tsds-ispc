@@ -11,7 +11,8 @@ def solicitar_datos_inversor():
     reingrese_dato(validadorDato.ValidacionDatos.validar_formato_email,email,"Ingrese un correo")
     nombre= input(f'Ingrese su nombre: ')
     apellido = input(f'Ingrese su apellido: ')
-    pas = input(f'Ingrese una contraseña: ')
+    print(f'Ingrese una contraseña entre 8-16 digitos que contenga algún caracter especial y números.')
+    pas = input(f'Contraseña: ')
     reingrese_dato(validadorDato.ValidacionDatos.pw_es_valido,pas,"Ingrese una contraseña")
     
 
