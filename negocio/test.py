@@ -1,5 +1,5 @@
 import unittest
-from ValidacionDatos import ValidadorCUIT, ValidadorEmail
+from ValidacionDatos import ValidadorCUIT, ValidadorEmail, ValidadorPassword
 
 
 class TestValidarCuit(unittest.TestCase):
@@ -33,6 +33,26 @@ class TestValidarEmail(unittest.TestCase):
     def test_email_incorrecto_caracteres_invalidos(self):
         self.assertFalse(ValidadorEmail("ejemplo@dominio!.com").mail_es_valido())
         self.assertFalse(ValidadorEmail("ejemplo@dominio#.com").mail_es_valido())
+
+class TestValidarPassword(unittest.TestCase):
+
+    def test_password_valida(self):
+        self.assertTrue(ValidadorPassword("Prueba123!").pw_es_valido())
+        self.assertTrue(ValidadorPassword("Secure$Pass1").pw_es_valido())
+
+    def test_password_invalida_sin_numeros_o_simbolos(self):
+        self.assertFalse(ValidadorPassword("SoloLetras").pw_es_valido())
+        self.assertFalse(ValidadorPassword("PasswordSegura").pw_es_valido())
+
+    def test_password_muy_corta(self):
+        self.assertFalse(ValidadorPassword("Abc12!").pw_es_valido()) 
+        
+    def test_password_muy_larga(self):
+        self.assertFalse(ValidadorPassword("EstaEsUnaContraseñaMuyLarga123!").pw_es_valido())  
+
+    def test_password_valida_longitud_limite(self):
+        self.assertTrue(ValidadorPassword("Abc123!@").pw_es_valido())  
+        self.assertTrue(ValidadorPassword("12345678$Pass").pw_es_valido())  
 
 if __name__ == '__main__':
     unittest.main()

@@ -19,6 +19,12 @@ class ValidadorEmail:
         patron = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|org|net|edu|gov|mil|info|co|ar|mx|es|it|fr|uk|io)$'
         return re.match(patron, email) is not None
 
+class ValidadorPassword:
+    def __init__(self, password):
+        self.password = password
+
+    def pw_es_valido(self):
+        return 8 <= len(self.password) <= 16 and re.search(r'[0-9!@#$%^&*(),.?":{}|<>]', self.password) is not None
 
 if __name__ == '__main__':
 
@@ -41,11 +47,14 @@ if __name__ == '__main__':
         else:
             print(f"El correo electrónico '{email}' no es válido.")
 
-
     cuit_validador = ValidadorCUIT("20315756597")
     if cuit_validador.cuit_es_valido():
         print("El CUIT es válido.")
     else:
         print("El CUIT no es válido.")
 
-
+    password_validador = ValidadorPassword("123.456.#°!")
+    if password_validador.pw_es_valido():
+        print("La contraseña es válida.")
+    else:
+        print("La contraseña no es válida.")
