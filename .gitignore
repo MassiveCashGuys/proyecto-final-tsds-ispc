@@ -1,6 +1,10 @@
 env
 .env
+
 backend/__pycache__/
 entorno/
 backend/claseDAO/__pycache__/
+__pycache__
+consolaFrontend/__pycache__/
+negocio/__pycache__/
 
