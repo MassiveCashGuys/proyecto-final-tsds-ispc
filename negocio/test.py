@@ -1,5 +1,5 @@
 import unittest
-from ValidacionDatos import ValidadorCUIT, ValidadorEmail, ValidadorPassword
+from validadorDato.ValidacionDatos import ValidadorCUIT, ValidadorEmail, ValidadorPassword
 
 
 class TestValidarCuit(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestValidarPassword(unittest.TestCase):
 
     def test_password_muy_corta(self):
         self.assertFalse(ValidadorPassword("Abc12!").pw_es_valido()) 
-        
+
     def test_password_muy_larga(self):
         self.assertFalse(ValidadorPassword("EstaEsUnaContraseñaMuyLarga123!").pw_es_valido())  
 

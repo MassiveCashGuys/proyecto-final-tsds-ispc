@@ -24,7 +24,7 @@ def mostar_menu_inicio_sesion():
             controllerMenuPrincipal.menu_principal()
         elif opcion == 2:
             print(f"Nuevo Usuario.")
-            controllerRegistrarInversor.cargar_menu_tipo_documento()
+            controllerRegistrarInversor.cargar_menu_registro_inversor()
         elif opcion == 3:
             print(f"Recuperar mi Contraseña.")
         elif opcion == 4:
