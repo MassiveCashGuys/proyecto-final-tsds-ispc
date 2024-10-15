@@ -1,4 +1,5 @@
 import bcrypt
+from controllers.controllerPortafolio import cargar_saldo_inicial
 
 
 def crear_encriptacion_password(password):
@@ -13,23 +14,6 @@ def validar_password(password_has, pas):
     return bcrypt.checkpw(pas.encode('utf-8'), password_has)
 
 
-def asignar_saldo_inicial(self, idporfolio):
-    if connection:
-        try:
-            cursor = connection.cursor()
-
-            sql = "update portafolio set saldo_actual = %s where id_portafolio= %s"
-            values = (1000000, self.__id_portafolio)
-            cursor.execute(sql, valores)
-
-            connection.commit()
-
-            cursor.close()
-            connection.close()
-            return True
-
-        except Exception as e:
-            # print(f"Error:{e}")
-            return False
-    else:
-        return "No se pudo conectar a la db"
+def asignar_saldo_inicial(idporfolio):
+    cargar_saldo_inicial(id_portafolio=idporfolio)
+    return "Se han asignado $1.000.000 de saldo inicial"
