@@ -1,6 +1,7 @@
+from controllers import controllerRegistrarInversor
 def menu_principal():
     print(f'****************ARGBROKER****************')
-    print(f'1- Opción.')
+    print(f'1- Registrar Inversor.')
     print(f'2- Opción.')
     print(f'3- Opción.')
     print(f'4- Opción.')
@@ -12,9 +13,10 @@ def mostrar_menu_principal():
     while True:
         menu_principal()
         opcion = int(input(f"Seleccione una opción (1-6): "))
-
+        
         if opcion == 1:
-            print(f" Opción 1")
+            print(f" Registrar Inversor")
+            controllerRegistrarInversor.menu_tipo_documento.mostar_menu_tipo_documento()
         elif opcion == 2:
             print(f" Opción 2.")
         elif opcion == 3:
