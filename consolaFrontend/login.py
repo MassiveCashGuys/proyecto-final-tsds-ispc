@@ -1,10 +1,11 @@
 from controllers import controllerMenuPrincipal, controllerRegistrarInversor
 
+import getpass
+import os
 
 def recuperar_contraseña():
     contraseña=""
     return contraseña
-
 
 def menu_inicio_sesion():
     print(f"*******INICIO SESIÓN/ REGISTRO*******")
@@ -21,7 +22,7 @@ def mostar_menu_inicio_sesion():
 
         if opcion == 1:
             print(f"Ingresar Usuario y Contraseña")
-            controllerMenuPrincipal.menu_principal()
+            controllerMenuPrincipal.menu_principal() # aca va mi login!!!
         elif opcion == 2:
             print(f"Nuevo Usuario.")
             controllerRegistrarInversor.cargar_menu_registro_inversor()
@@ -34,3 +35,11 @@ def mostar_menu_inicio_sesion():
             break
         else:
             print("Opción no válida. Por favor, elija una opción del 1 al 5.")
+
+
+# Gustavo 
+def verify_password(email, password):
+    pass
+
+def login():
+    pass

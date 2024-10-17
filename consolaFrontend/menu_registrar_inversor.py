@@ -1,9 +1,17 @@
-from controllers import controllerTipoDocumento, controllerRegistrarInversor
+from controllers import controllerTipoDocumento, controllerRegistrarInversor, controllerInicioSesion
 from consolaFrontend import menu_tipo_documento
+from negocio import servicioReglasNegocio, usuario
 import validadorDato.ValidacionDatos
+
+
 
 def solicitar_datos_inversor():
     print(f"********Registro Inversor********")
+
+    #user = usuario.Usuario("hahahat@gmail.com", servicioReglasNegocio.crear_encriptacion_password("pepito"),1)
+    #print(user)
+    #print(controllerInicioSesion.crear_usuario(user))
+    
     controllerTipoDocumento.cargar_menu_tipo_documento()
     cuit = input(f'Ingrese un CUIT: ')
     reingrese_dato(validadorDato.ValidacionDatos.cuit_es_valido,cuit,"Ingrese un CUIT")
