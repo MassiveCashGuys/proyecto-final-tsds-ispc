@@ -1,8 +1,8 @@
-# 
 from abc import ABC
 import mysql.connector
 from backend import interfazDao
 from backend import conexion
+from negocio import usuario
 
 
 
@@ -26,12 +26,36 @@ class Usuario_Dao(interfazDao.DataAccesDao):
              print("err.")
              raise err 
     
-    def get(self, usuario): #fijarse que este igual en la base de datos!!!
-        pass
+    def get(self, id_user) -> usuario.Usuario:
+        try:
+            conn = conexion.connect_to_db()
+            cursor = conn.cursor()
+            query = "SELECT * FROM usuario WHERE id_user = %s"
+            cursor.execute(query, (id_user,))
+            row = cursor.fetchone()
+            if row:
+                return usuario.Usuario(row[0], row[1], row[2])
+            else:
+                return None
+        except mysql.connector.Error as err:
+            print("Error:", err)
+            raise err
     
     
-    def getAll(self):
-        pass
+    def getAll(self) -> list:
+        try:
+            conn = conexion.connect_to_db()
+            cursor = conn.cursor()
+            query = "SELECT * FROM usuario"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            if rows:
+                return [usuario.Usuario(row[0], row[1], row[2]) for row in rows]
+            else:
+                return None
+        except mysql.connector.Error as err:
+            print("err.")
+            raise err
 
     
     def update(self, usuario):
