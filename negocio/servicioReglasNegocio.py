@@ -11,7 +11,7 @@ def crear_encriptacion_password(password):
 
 
 def validar_password(password_has, pas):
-    return bcrypt.checkpw(pas.encode('utf-8'), password_has)
+    return bcrypt.checkpw(pas.encode(), password_has)
 
 
 def asignar_saldo_inicial(idporfolio):
