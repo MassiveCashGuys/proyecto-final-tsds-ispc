@@ -58,9 +58,30 @@ class Usuario_Dao(interfazDao.DataAccesDao):
             raise err
 
     
-    def update(self, usuario):
-        pass
+    def update(self, user):
+        try:
+            conn = conexion.connect_to_db()
+            cursor = conn.cursor()
+            query = "UPDATE usuario SET password=%s, id_perfil=%s WHERE id_user=%s"
+            cursor.execute(query, (user.get_password(), user.get_id_perfil(), user.get_id_user()))
+            conn.commit()
+        except mysql.connector.Error as err:
+            print("err.")
+            raise err
 
     
-    def delete(self, usuario):
-        pass
+    def delete(self, id_user):
+        try:
+            conn = conexion.connect_to_db()
+            cursor = conn.cursor()
+            query = "DELETE FROM usuario WHERE id_user = %s"
+            cursor.execute(query, (id_user,))
+            row = cursor.rowcount
+            conn.commit()
+            if row > 0:
+                return True
+            else:
+                return False
+        except mysql.connector.Error as err:
+            print("err.")
+            raise err 
