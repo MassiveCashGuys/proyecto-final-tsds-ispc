@@ -69,26 +69,41 @@ def menu_ingreso():
         return None
     """
 def menu_inicio_login():
-    print(f"*******INICIO SESIÓN*******")
+    print("\n")
+    print(f"*******INICIO DE SESIÓN*******")
+    print("\n")
     email = input(f'Ingrese su correo: ')
-    password = input(f'Ingrese su contraseña: ')
-    user = usuario.Usuario(email, password, None)
-
-    # Verifica si los datos existen en la base de datos
+    
+    # Verifica si el email existe en la base de datos
     usuario_dao = Usuario_Dao()
     user = usuario_dao.get(email)
 
     if user:
+
+        password = input(f'Ingrese su contraseña: ')
+
         # Verifica si la contraseña es correcta
         if user.get_password() == password:
-            print("Ingreso correcto")
+            print("\n")
+            print(" ✅ Ingreso correcto ✅")
+            print("\n")
+            print("Bienvenido " + user.get_id_user() + " 🙋‍♂️ 🙋‍♀️")
+            print("\n")
+            print("Datos del usuario: " + user.__str__())
+            print("\n")
             return user
         else:
-            print("Contraseña incorrecta")
+            print("\n")
+            print(" ⚠️ Contraseña incorrecta ⚠️ ")
+            print("\n")
             return None
     else:
-        print("Correo electrónico no encontrado")
+        print("\n")
+        print(" ⚠️ Correo electrónico no encontrado ⚠️ ")
+        print("\n")
         return None
+    
+    
     
 
 # Seguir con la validación de la contraseña despues!!!
