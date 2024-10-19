@@ -46,60 +46,38 @@ def mostar_menu_inicio_sesion():
 
 
 # Gustavo 
-"""
-def menu_ingreso():
-    print(f"*******INICIO SESIÓN*******")
-    email = input(f'Ingrese su correo: ')
-    password = input(f'Ingrese su contraseña: ')
-    user = usuario.Usuario(email, password, None)
-    
-# Verifica si los datos existen en la base de datos
-    user = controllerInicioSesion.obtener_usuario(email)
-    
-    if user:
-        # Verifica si la contraseña es correcta
-        if controllerInicioSesion.validar_password(user, password):
-            print("Ingreso correcto")
-            return user
-        else:
-            print("Contraseña incorrecta")
-            return None
-    else:
-        print("Correo electrónico no encontrado")
-        return None
-    """
+# Tarea 14 y 16
 def menu_inicio_login():
     print("\n")
-    print(f"*******INICIO DE SESIÓN*******")
+    print(f"******************************")
+    print(f"**     INICIO DE SESIÓN     **")
+    print(f"******************************")
     print("\n")
     email = input(f'Ingrese su correo: ')
-    
+    password = input(f'Ingrese su contraseña: ')
+
     # Verifica si el email existe en la base de datos
     usuario_dao = Usuario_Dao()
     user = usuario_dao.get(email)
 
-    if user:
-
-        password = input(f'Ingrese su contraseña: ')
+    if user:        
 
         # Verifica si la contraseña es correcta
         if user.get_password() == password:
             print("\n")
             print(" ✅ Ingreso correcto ✅")
             print("\n")
-            print("Bienvenido " + user.get_id_user() + " 🙋‍♂️ 🙋‍♀️")
-            print("\n")
-            print("Datos del usuario: " + user.__str__())
-            print("\n")
+            print("Bienvenido " + user.get_id_user() + " 🙋‍♂️ 🙋‍♀️") # Cambiar para que agregue el nombre desde inventario.
+            print("\n")            
             return user
         else:
             print("\n")
-            print(" ⚠️ Contraseña incorrecta ⚠️ ")
+            print("Error: Email o Contraseña incorrecta ⚠️ ")
             print("\n")
             return None
     else:
         print("\n")
-        print(" ⚠️ Correo electrónico no encontrado ⚠️ ")
+        print("Error: Email o Contraseña incorrecta ⚠️ ")
         print("\n")
         return None
     
