@@ -1,5 +1,5 @@
 from controllers import controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion
-from negocio import usuario
+from negocio import usuario, servicioReglasNegocio
 from backend.clasesDAO.usuario_dao import Usuario_Dao
 import getpass
 import os
@@ -56,6 +56,8 @@ def menu_inicio_login():
     email = input(f'Ingrese su correo: ')
     password = input(f'Ingrese su contraseña: ')
 
+
+
     # Verifica si el email existe en la base de datos
     usuario_dao = Usuario_Dao()
     user = usuario_dao.get(email)
@@ -63,7 +65,7 @@ def menu_inicio_login():
     if user:        
 
         # Verifica si la contraseña es correcta
-        if user.get_password() == password:
+        if servicioReglasNegocio.validar_password(password, user.get_password()):
             print("\n")
             print(" ✅ Ingreso correcto ✅")
             print("\n")
