@@ -4,14 +4,13 @@ from controllers.controllerPortafolio import cargar_saldo_inicial
 
 def crear_encriptacion_password(password):
     salt = bcrypt.gensalt()
-    print(salt)
     hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
-    print(hashed)
     return hashed
 
 
-def validar_password(password_has, pas):
-    return bcrypt.checkpw(pas.encode(), password_has)
+def validar_password(password, password_has):
+    password_has = password_has.encode('utf-8')
+    return bcrypt.checkpw(password.encode('utf-8'), password_has)
 
 
 def asignar_saldo_inicial(idporfolio):

@@ -40,6 +40,21 @@ class Usuario_Dao(interfazDao.DataAccesDao):
         except mysql.connector.Error as err:
             print("Error:", err)
             raise err
+        
+    def getHash(self, id_user) -> usuario.Usuario:
+        try:
+            conn = conexion.connect_to_db()
+            cursor = conn.cursor()
+            query = "SELECT * FROM usuario WHERE id_user = %s"
+            cursor.execute(query, (id_user,))
+            row = cursor.fetchone()
+            if row:
+                return usuario.Usuario(None,row[1],None)
+            else:
+                return None
+        except mysql.connector.Error as err:
+            print("Error:", err)
+            raise err
     
     
     def getAll(self) -> list:
