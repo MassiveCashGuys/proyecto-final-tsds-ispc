@@ -12,6 +12,7 @@ negocio/__pycache__/
 controllers/__pycache__/
 service/__pycache__/
 validadorDato/__pycache__/
+backend\__pycache__
 
 # Ignorar la carpeta entorno si es necesario
 entorno/
