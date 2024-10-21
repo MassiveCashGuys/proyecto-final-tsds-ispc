@@ -1,5 +1,4 @@
-from negocio import tipoDocumento
-def menu_tipo_documento(titulo, moduloController):
+def menu_tipo(titulo, moduloController):
     print(f"*******{titulo}*******")
     lista_tipo =  moduloController.obtener_lista_tipo()
    
@@ -8,9 +7,9 @@ def menu_tipo_documento(titulo, moduloController):
     return lista_tipo
 
 
-def mostar_menu_tipo(textoIngreso):
-        lista = menu_tipo_documento()
-        opcion = input(f'Ingrese un tipo de {textoIngreso}: ')
+def mostar_menu_tipo(titulo, moduloController, ingresoDato):
+        lista = menu_tipo(titulo, moduloController)
+        opcion = input(f'Ingrese un tipo de {ingresoDato}: ')
         return obtener_tipo(opcion,lista)
        
 
