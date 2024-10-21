@@ -11,14 +11,14 @@ class InversorDao(interfazDao.DataAccesDao):
     def create(self,objectInversor):
       
          try:
-             print(objectInversor.get_cuit())
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
              query=" INSERT INTO inversor (cuit, numero_documento, nombre, apellido, id_portafolio, id_tipo_inversor, id_tipo_documento, id_usuario ) VALUES (%s, %s,%s, %s,%s, %s,%s, %s)"
              cursor.execute(query,(objectInversor.get_cuit(), objectInversor.get_numero_documento(), objectInversor.get_nombre(), objectInversor.get_apellido(), objectInversor.get_portafolio().get_id_portafolio(), objectInversor.get_tipo_inversor().get_id_tipo_inversor(), objectInversor.get_tipo_documento().get_id_tipo_documento(), objectInversor.get_user().get_id_user()))
              conn.commit()
              if cursor.rowcount == 1:
-                return True
+                  lastInversor = self.get(objectInversor.get_cuit())
+                  return lastInversor
              else:
                 return False
          except mysql.connector.Error as err:

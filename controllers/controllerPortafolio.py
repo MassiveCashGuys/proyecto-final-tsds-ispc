@@ -10,4 +10,8 @@ def crear_portafolio()->portafolio.Portafolio:
     nuevo_portafolio_dao = portafolio_dao.Portafolio_Dao()
     nuevoPortafolio= portafolio.Portafolio(None,0, servicioReglasNegocio.definir_fecha_actual())
     return nuevo_portafolio_dao.create(nuevoPortafolio)
+
+def obteder_portafolio(idPortafolio):
+      nuevo_portafolio_dao = portafolio_dao.Portafolio_Dao()
+      return nuevo_portafolio_dao.get(idPortafolio)
     
