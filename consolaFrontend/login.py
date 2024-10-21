@@ -1,5 +1,5 @@
 from controllers import controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion
-from negocio import usuario, servicioReglasNegocio
+from negocio import usuario, servicioReglasNegocio, usuario
 from backend.clasesDAO.usuario_dao import Usuario_Dao
 import getpass
 import os
@@ -7,6 +7,8 @@ import os
 def recuperar_contraseña():
     contraseña=""
     return contraseña
+
+
 
 def menu_inicio_sesion():
     print(f"*******INICIO SESIÓN/ REGISTRO*******")
@@ -23,14 +25,6 @@ def mostar_menu_inicio_sesion():
 
         if opcion == 1: # Gus
             user = menu_inicio_login()
-
-            """   Seguir con la validación de la contraseña despues!!!     
-            aux = controllerInicioSesion.obtener_usuario(user.get_id_user())
-            print(user)
-            print(aux)
-            validar_ingreso(aux, user.get_password())
-            """
-
         elif opcion == 2:
             print(f"Nuevo Usuario.")
             controllerRegistrarInversor.cargar_menu_registro_inversor()
@@ -48,13 +42,14 @@ def mostar_menu_inicio_sesion():
 # Gustavo 
 # Tarea 14 y 16
 def menu_inicio_login():
+
     print("\n")
     print(f"******************************")
     print(f"**     INICIO DE SESIÓN     **")
     print(f"******************************")
     print("\n")
     email = input(f'Ingrese su correo: ')
-    password = input(f'Ingrese su contraseña: ')
+    password = servicioReglasNegocio.input_con_asteriscos(f'Ingrese su contraseña: ')
 
 
 
@@ -84,20 +79,7 @@ def menu_inicio_login():
         return None
     
     
-    
 
-# Seguir con la validación de la contraseña despues!!!
-"""
-def validar_ingreso(user, password):
-    #if user:
-        print(controllerInicioSesion.validar_password(user, password))
 
-        if controllerInicioSesion.validar_password(user, password):
-            print("Ingreso correcto")
-        else:
-            print("Ingreso incorrecto")
-    else:  
-        print("Ingreso incorrecto")
-"""
 
 
