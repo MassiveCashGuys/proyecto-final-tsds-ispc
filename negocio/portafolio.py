@@ -1,7 +1,3 @@
-import os
-from backend.conexion import connect_to_db, disconnect_db
-
-
 class Portafolio:
     def __init__(self, id_portafolio, saldo_actual, fecha_inicio):
         self.__id_portafolio = id_portafolio

@@ -6,4 +6,4 @@ def obtener_lista_tipo_documento()->list:
     return dao_tipo_documento.getAll()
 
 def cargar_menu_tipo_documento():
-    menu_tipo_documento.mostar_menu_tipo_documento()
+    return menu_tipo_documento.mostar_menu_tipo_documento()

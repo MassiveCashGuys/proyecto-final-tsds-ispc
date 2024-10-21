@@ -2,31 +2,33 @@ from abc import ABC
 import mysql.connector
 from backend import interfazDao
 from backend import conexion
-from negocio import tipoDocumento
+from negocio import portafolio
 
 
 class Portafolio_Dao(interfazDao.DataAccesDao):
     def __init__(self):
         pass
 
-    def create(self, portafolio):
+    def create(self, objectPortafolio):
 
         try:
             conn = conexion.connect_to_db()
             cursor = conn.cursor()
-            query = " INSERT INTO portafolio (nombre, descripcion) VALUES (%s, %s)"
-            cursor.execute(query, (portafolio.get_saldo_inicial(),
-                           portafolio.get_fecha_inicio()))
+            query = " INSERT INTO portafolio (saldo_actual, fecha_inicio) VALUES (%s, %s)"
+            cursor.execute(query, (objectPortafolio.get_saldo_actual(),
+                           objectPortafolio.get_fecha_inicio()))
             conn.commit()
             if cursor.rowcount == 1:
-                return True
+                new_id = cursor.lastrowid
+                lastPortafolio = self.get( new_id)
+                return lastPortafolio
             else:
-                return False
+                return None
         except mysql.connector.Error as err:
             print("err.")
             raise err
 
-    def get(self, id_portafolio) -> tipoDocumento.TipoDocumento:
+    def get(self, id_portafolio) -> portafolio.Portafolio:
         try:
             conn = conexion.connect_to_db()
             cursor = conn.cursor()
@@ -35,7 +37,7 @@ class Portafolio_Dao(interfazDao.DataAccesDao):
             row = cursor.fetchone()
             conn.commit()
             if row:
-                return tipoDocumento.TipoDocumento(row[0], row[1], row[2])
+                return portafolio.Portafolio(row[0], row[1], row[2])
             else:
                 return None
         except mysql.connector.Error as err:
@@ -50,7 +52,7 @@ class Portafolio_Dao(interfazDao.DataAccesDao):
             cursor.execute(query)
             rows = cursor.fetchall()
             if rows:
-                return [tipoDocumento.TipoDocumento(row[0], row[1], row[2]) for row in rows]
+                return [portafolio.Portafolio(row[0], row[1], row[2]) for row in rows]
             else:
                 return None
         except mysql.connector.Error as err:
