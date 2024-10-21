@@ -1,31 +1,42 @@
+import random
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import os
+import string
+from dotenv import load_dotenv
+
+   
 
 # Crear el mensaje
-def crear_mensaje():
-    remitente = 'argbrokerLegal@gmail.com'
-    destinatario = 'programacionwebolmos@gmail.com'
-    contraseña = 'yvcg xekw gdmn kzbt'  # Usa la contraseña de aplicación aquí
+def crear_mensaje(dato):
+    load_dotenv()
+    remitente =  os.getenv("REMITENTE")
+    destinatario = dato['usuario'].get_id_user()
+    contraseña = os.getenv("EMAIL_PASSWORD") 
+  
 
     mensaje = MIMEMultipart()
     mensaje['From'] = remitente
     mensaje['To'] = destinatario
     mensaje['Subject'] = 'Recuperación de contraseña'
 
-    # Contenido del correo
-    cuerpo = 'Este es el contenido del correo'
+    cuerpo = f'En este mail le pasamos la contraseña para poder logearse. Su contraseña es: {dato["password"]} se recomienda modificar la contraseña.'
     mensaje.attach(MIMEText(cuerpo, 'plain'))
 
-    # Conexión con el servidor SMTP de Gmail
+    
     try:
         servidor = smtplib.SMTP('smtp.gmail.com', 587)
-        servidor.starttls()  # Iniciar TLS para asegurar la conexión
+        servidor.starttls()  
         servidor.login(remitente, contraseña)
         servidor.sendmail(remitente, destinatario, mensaje.as_string())
         servidor.quit()
-        print("Correo enviado exitosamente.")
+        print("Su contraseña se envio a su email.")
     except Exception as e:
         print(f"Error al enviar el correo: {e}")
 
 
+def generar_contrasena(longitud=12):
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    contrasena = ''.join(random.choice(caracteres) for _ in range(longitud))
+    return contrasena

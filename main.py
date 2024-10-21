@@ -8,7 +8,6 @@ from service import servicioEmail
 
 
 def main():
-    servicioEmail.crear_mensaje()
     controllerInicioSesion.inicio_sesion()
 
 if __name__ == "__main__":
