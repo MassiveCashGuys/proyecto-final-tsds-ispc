@@ -1,21 +1,21 @@
-from controllers import controllerTipoDocumento
 from negocio import tipoDocumento
-def menu_tipo_documento():
-    print(f"*******Tipo de Documentos*******")
-    lista_tipo_documento = controllerTipoDocumento.obtener_lista_tipo_documento()
+def menu_tipo_documento(titulo, moduloController):
+    print(f"*******{titulo}*******")
+    lista_tipo =  moduloController.obtener_lista_tipo()
    
-    for doc in lista_tipo_documento :
+    for doc in lista_tipo :
         print(f'{doc.get_nombre()} - {doc.get_descripcion()} ')
-    return lista_tipo_documento
+    return lista_tipo
 
 
-def mostar_menu_tipo_documento():
+def mostar_menu_tipo(textoIngreso):
         lista = menu_tipo_documento()
-        opcion = input(f'Ingrese un tipo de documento solo las iniciales: ')
+        opcion = input(f'Ingrese un tipo de {textoIngreso}: ')
+        return obtener_tipo(opcion,lista)
        
 
-def obtener_tipo_documento (opcion, lista)->tipoDocumento.TipoDocumento:
-    for doc in lista:
-        if doc.get_nombre() == opcion.upper():
-            return doc
+def obtener_tipo (opcion, lista):
+    for tipo in lista:
+        if tipo.get_nombre() == opcion.upper():
+            return tipo
     return None
