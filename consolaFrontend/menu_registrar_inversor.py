@@ -1,5 +1,5 @@
-from controllers import controllerTipoDocumento, controllerPortafolio, controllerRegistrarInversor, controllerInicioSesion
-from consolaFrontend import menu_tipo_documento
+from controllers import controllerTipoDocumento, controllerPortafolio,controllerTipoInversor, controllerRegistrarInversor, controllerInicioSesion
+from consolaFrontend import menu_tipo_documento, menu_tipos
 from negocio import servicioReglasNegocio, usuario, inversor, tipoInversor
 import validadorDato.ValidacionDatos
 
@@ -11,6 +11,7 @@ def solicitar_datos_inversor():
     #user = usuario.Usuario("hahahat@gmail.com", servicioReglasNegocio.crear_encriptacion_password("pepito"),1)
     #print(user)
     #print(controllerInicioSesion.crear_usuario(user))
+    nuevo_tipo_inversor = controllerTipoInversor.cargar_menu_tipo_inversor()
     numero_documento = input(f'Ingrese un número de documento: ')
     nuevo_tipo_documento=controllerTipoDocumento.cargar_menu_tipo_documento()
     cuit = input(f'Ingrese un CUIT: ')
@@ -25,9 +26,7 @@ def solicitar_datos_inversor():
     pasHas= servicioReglasNegocio.crear_encriptacion_password(pas)
     nuevo_usuario = usuario.Usuario(email, pasHas, 1)
     nuevo_portafolio = controllerPortafolio.crear_portafolio();
-    nuevoTipoInversor= tipoInversor.TipoInversor(9,None,None)
-    nuevoInversor = inversor.Inversor(cuit, nuevo_tipo_documento, numero_documento, nombre, apellido, nuevo_portafolio, nuevoTipoInversor, nuevo_usuario)
-    print(nuevoInversor.get_cuit())
+    nuevoInversor = inversor.Inversor(cuit, numero_documento, nombre, apellido, nuevo_portafolio, nuevo_tipo_inversor, nuevo_tipo_documento, nuevo_usuario)
     controllerRegistrarInversor.crear_inversor(nuevoInversor)
     
 
