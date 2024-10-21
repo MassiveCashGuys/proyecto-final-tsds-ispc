@@ -12,7 +12,7 @@ class TipoInversor:
         self.__nombre = nombre
         self.__descripcion = descripcion
 
-    def get_id_id_tipo_inversor(self):
+    def get_id_tipo_inversor(self):
         return self.__id_tipo_inversor
 
     def get_nombre(self):
