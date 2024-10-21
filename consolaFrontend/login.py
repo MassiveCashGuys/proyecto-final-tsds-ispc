@@ -1,6 +1,7 @@
-from controllers import controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion
+from controllers import controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
 from negocio import usuario, servicioReglasNegocio
 from backend.clasesDAO.usuario_dao import Usuario_Dao
+from consolaFrontend import menu_recuperar_password
 import getpass
 import os
 
@@ -13,7 +14,7 @@ def menu_inicio_sesion():
     print(f"1. Ingresar Usuario y Contraseña")
     print(f"2. Nuevo Usuario.")
     print(f"3. Recuperar mi Contraseña.")
-    print(f"4. Recuperar mi Usuario")
+    print(f"4. Modificar mi Contraseña ")
     print(f'5- salir del sistema.')
     
 def mostar_menu_inicio_sesion():
@@ -35,9 +36,10 @@ def mostar_menu_inicio_sesion():
             print(f"Nuevo Usuario.")
             controllerRegistrarInversor.cargar_menu_registro_inversor()
         elif opcion == 3:
-            print(f"Recuperar mi Contraseña.")
+            menu_recuperar_password.menu_recuperar_contraseña()
+             
         elif opcion == 4:
-            print(f"Recuperar mi Usuario.")
+            print(f"Modificar mi contraseña.")
         elif opcion == 5:
             print(f"Saliendo del programa.")
             break
