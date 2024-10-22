@@ -1,9 +1,8 @@
+from consolaFrontend.menu_inicio_sesion import menu_inicio_login
 from controllers import controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
-from negocio import usuario, servicioReglasNegocio, usuario
+from negocio import usuario, servicioReglasNegocio
 from backend.clasesDAO.usuario_dao import Usuario_Dao
 from consolaFrontend import menu_recuperar_password
-import getpass
-import os
 
 def recuperar_contraseña():
     contraseña=""
@@ -41,44 +40,7 @@ def mostar_menu_inicio_sesion():
             print("Opción no válida. Por favor, elija una opción del 1 al 5.")
 
 
-# Gustavo 
-# Tarea 14 y 16
-def menu_inicio_login():
 
-    print("\n")
-    print(f"******************************")
-    print(f"**     INICIO DE SESIÓN     **")
-    print(f"******************************")
-    print("\n")
-    email = input(f'Ingrese su correo: ')
-    password = servicioReglasNegocio.input_con_asteriscos(f'Ingrese su contraseña: ')
-
-
-
-    # Verifica si el email existe en la base de datos
-    usuario_dao = Usuario_Dao()
-    user = usuario_dao.get(email)
-
-    if user:        
-
-        # Verifica si la contraseña es correcta
-        if servicioReglasNegocio.validar_password(password, user.get_password()):
-            print("\n")
-            print(" ✅ Ingreso correcto ✅")
-            print("\n")
-            print("Bienvenido " + user.get_id_user() + " 🙋‍♂️ 🙋‍♀️") # Cambiar para que agregue el nombre desde inventario.
-            print("\n")            
-            return user
-        else:
-            print("\n")
-            print("Error: Email o Contraseña incorrecta ⚠️ ")
-            print("\n")
-            return None
-    else:
-        print("\n")
-        print("Error: Email o Contraseña incorrecta ⚠️ ")
-        print("\n")
-        return None
     
     
 
