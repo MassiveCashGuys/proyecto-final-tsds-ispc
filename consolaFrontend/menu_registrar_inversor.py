@@ -12,10 +12,13 @@ def solicitar_datos_inversor():
     #print(user)
     #print(controllerInicioSesion.crear_usuario(user))
     nuevo_tipo_inversor = controllerTipoInversor.cargar_menu_tipo_inversor()
-    numero_documento = input(f'Ingrese un número de documento: ')
-    nuevo_tipo_documento=controllerTipoDocumento.cargar_menu_tipo_documento()
+    nuevo_tipo_inversor = validadorDato.ValidacionDatos.tipo_de_dato(controllerTipoInversor.cargar_menu_tipo_inversor,nuevo_tipo_inversor)
+    nuevo_tipo_documento = controllerTipoDocumento.cargar_menu_tipo_documento()
+    nuevo_tipo_documento = validadorDato.ValidacionDatos.tipo_de_dato(controllerTipoDocumento.cargar_menu_tipo_documento,nuevo_tipo_documento)
+    #numero_documento = input(f'Ingrese un número de documento: ')
     cuit = input(f'Ingrese un CUIT: ')
-    cuit=reingrese_dato(validadorDato.ValidacionDatos.cuit_es_valido,cuit,"Ingrese un CUIT")
+    cuit = reingrese_dato(validadorDato.ValidacionDatos.cuit_es_valido,cuit,"Ingrese un CUIT")
+    numero_documento = validadorDato.ValidacionDatos.extraccion_num_documento(cuit)
     email = input(f'Ingrese un correo: ')
     email=reingrese_dato(validadorDato.ValidacionDatos.validar_formato_email,email,"Ingrese un correo")
     nombre= input(f'Ingrese su nombre: ')
@@ -23,7 +26,7 @@ def solicitar_datos_inversor():
     print(f'Ingrese una contraseña entre 8-16 digitos que contenga algún caracter especial y números.')
     pas = input(f'Contraseña: ')
     reingrese_dato(validadorDato.ValidacionDatos.pw_es_valido,pas,"Ingrese una contraseña")
-    
+
 
 def reingrese_dato(funcion, variable, texto):
 
@@ -34,5 +37,3 @@ def reingrese_dato(funcion, variable, texto):
             variable = input(f"{texto} de nuevo: ")
     
 
-def guardar_datos(cuit, email, nombre, apellido, pas):
-    print("Datos guardados correctamente.")

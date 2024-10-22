@@ -8,6 +8,8 @@ __pycache__/
 backend/__pycache__/
 backend/claseDAO/__pycache__
 consolaFrontend/__pycache__/
+backend/claseDAO/__pycache__
+consolaFrontend/__pycache__/
 negocio/__pycache__/
 controllers/__pycache__/
 service/__pycache__/
