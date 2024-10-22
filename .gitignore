@@ -1,13 +1,21 @@
-env
+# Archivos de entorno
 .env
+
+# Archivos de caché de Python
+__pycache__/
+
+# Ignorar carpetas específicas si es necesario
 backend/__pycache__/
-entorno/
-backend/claseDAO/__pycache__/
-__pycache__
-consolaFrontend/__pycache__
+backend/claseDAO/__pycache__
+consolaFrontend/__pycache__/
 negocio/__pycache__/
 controllers/__pycache__/
-/pycache/*
-/__pycache__/*
+service/__pycache__/
+validadorDato/__pycache__/
+backend/__pycache__
+backend/clasesDAO/__pycache__
+backend/clasesDAO/__pycache__/
+# Ignorar la carpeta entorno si es necesario
+entorno/
 
 
