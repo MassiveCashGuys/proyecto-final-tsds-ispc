@@ -1,13 +1,14 @@
+from consolaFrontend.menu_inicio_sesion import menu_inicio_login
 from controllers import controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
 from negocio import usuario, servicioReglasNegocio
 from backend.clasesDAO.usuario_dao import Usuario_Dao
 from consolaFrontend import menu_recuperar_password
-import getpass
-import os
 
 def recuperar_contraseña():
     contraseña=""
     return contraseña
+
+
 
 def menu_inicio_sesion():
     print(f"*******INICIO SESIÓN/ REGISTRO*******")
@@ -24,14 +25,6 @@ def mostar_menu_inicio_sesion():
 
         if opcion == 1: # Gus
             user = menu_inicio_login()
-
-            """   Seguir con la validación de la contraseña despues!!!     
-            aux = controllerInicioSesion.obtener_usuario(user.get_id_user())
-            print(user)
-            print(aux)
-            validar_ingreso(aux, user.get_password())
-            """
-
         elif opcion == 2:
             print(f"Nuevo Usuario.")
             controllerRegistrarInversor.cargar_menu_registro_inversor()
@@ -47,59 +40,10 @@ def mostar_menu_inicio_sesion():
             print("Opción no válida. Por favor, elija una opción del 1 al 5.")
 
 
-# Gustavo 
-# Tarea 14 y 16
-def menu_inicio_login():
-    print("\n")
-    print(f"******************************")
-    print(f"**     INICIO DE SESIÓN     **")
-    print(f"******************************")
-    print("\n")
-    email = input(f'Ingrese su correo: ')
-    password = input(f'Ingrese su contraseña: ')
 
-
-
-    # Verifica si el email existe en la base de datos
-    usuario_dao = Usuario_Dao()
-    user = usuario_dao.get(email)
-
-    if user:        
-
-        # Verifica si la contraseña es correcta
-        if servicioReglasNegocio.validar_password(password, user.get_password()):
-            print("\n")
-            print(" ✅ Ingreso correcto ✅")
-            print("\n")
-            print("Bienvenido " + user.get_id_user() + " 🙋‍♂️ 🙋‍♀️") # Cambiar para que agregue el nombre desde inventario.
-            print("\n")            
-            return user
-        else:
-            print("\n")
-            print("Error: Email o Contraseña incorrecta ⚠️ ")
-            print("\n")
-            return None
-    else:
-        print("\n")
-        print("Error: Email o Contraseña incorrecta ⚠️ ")
-        print("\n")
-        return None
-    
     
     
 
-# Seguir con la validación de la contraseña despues!!!
-"""
-def validar_ingreso(user, password):
-    #if user:
-        print(controllerInicioSesion.validar_password(user, password))
 
-        if controllerInicioSesion.validar_password(user, password):
-            print("Ingreso correcto")
-        else:
-            print("Ingreso incorrecto")
-    else:  
-        print("Ingreso incorrecto")
-"""
 
 

@@ -31,7 +31,7 @@ def crear_mensaje(dato):
         servidor.login(remitente, contraseña)
         servidor.sendmail(remitente, destinatario, mensaje.as_string())
         servidor.quit()
-        print("Su contraseña se envio a su email.")
+        print("Te enviamos un mail con tu nueva contraseña.")
     except Exception as e:
         print(f"Error al enviar el correo: {e}")
 
