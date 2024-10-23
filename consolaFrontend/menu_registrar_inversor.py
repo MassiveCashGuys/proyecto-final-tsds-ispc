@@ -27,7 +27,7 @@ def solicitar_datos_inversor():
     nuevo_usuario = usuario.Usuario(email, pasHas, 1)
     nuevo_portafolio = controllerPortafolio.crear_portafolio();
     nuevoInversor = inversor.Inversor(cuit, numero_documento, nombre, apellido, nuevo_portafolio, nuevo_tipo_inversor, nuevo_tipo_documento, nuevo_usuario)
-    controllerRegistrarInversor.crear_inversor(nuevoInversor)
+    return controllerRegistrarInversor.crear_inversor(nuevoInversor)
     
 
 def reingrese_dato(funcion, variable, texto):

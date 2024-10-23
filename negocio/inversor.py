@@ -55,4 +55,5 @@ class Inversor:
     def set_tipo_documento(self, tipo_documento):
         self.__tipo_documento =tipo_documento
     
-    
+    def __str__(self):
+        return str(f'id_user: {self.get_cuit()}, password: {self.get_user()}, id_perfil: {self.get_user()}')

@@ -40,7 +40,7 @@ class Tipo_Inversor_Dao(interfazDao.DataAccesDao):
          except mysql.connector.Error as err:
              print("err.")
              raise err 
-        
+       
  
     def getAll(self)->list:
          try:

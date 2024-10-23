@@ -7,7 +7,7 @@ def cargar_menu_tipo_documento():
     menu_tipo_documento.menu_tipo_documento()
 
 def cargar_menu_registro_inversor():
-    menu_registrar_inversor.solicitar_datos_inversor()
+    return menu_registrar_inversor.solicitar_datos_inversor()
 
 
 def crear_inversor(inversor):
@@ -19,6 +19,7 @@ def crear_inversor(inversor):
     updatePortafolio = controllerPortafolio.obteder_portafolio(updateInversor.get_portafolio())
     updateInversor.set_portafolio(updatePortafolio)
     cargar_saldo_inicial(updateInversor)
+    return updateInversor
 
 def cargar_saldo_inicial(inversor):
     controllerPortafolio.cargar_saldo_inicial(inversor.get_portafolio().get_id_portafolio())
