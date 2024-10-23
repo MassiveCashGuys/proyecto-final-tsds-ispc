@@ -15,8 +15,8 @@ def mostrar_menu_principal(inversor):
         opcion = int(input(f"Seleccione una opción (1-6): "))
         
         if opcion == 1:
-            print(f" Registrar Inversor")
-            controllerRegistrarInversor.menu_tipo_documento.mostar_menu_tipo_documento()
+            print(f"Opción 1")
+            
             input("Presiona cualquier tecla para continuar...")
         elif opcion == 2:
             print(f" Opción 2-en progreso de codificacion...")
