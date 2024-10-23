@@ -1,6 +1,7 @@
+import datetime
+import msvcrt
 import bcrypt
-from datetime import datetime
-""" from controllers.controllerPortafolio import cargar_saldo_inicial """
+from controllers.controllerPortafolio import cargar_saldo_inicial
 
 
 def crear_encriptacion_password(password):
@@ -13,6 +14,23 @@ def validar_password(password, password_has):
     password_has = password_has.encode('utf-8')
     return bcrypt.checkpw(password.encode('utf-8'), password_has)
 
+# Método para ocultar la contraseña con asteriscos
+def input_con_asteriscos(prompt):
+    print(prompt, end='', flush=True)
+    password = ''
+    while True:
+        tecla = msvcrt.getch()
+        if tecla == b'\r':  # Enter (fin de la contraseña)
+            break
+        elif tecla == b'\x08':  # Backspace
+            if len(password) > 0:
+                password = password[:-1]
+                print('\b \b', end='', flush=True)
+        else:
+            password += tecla.decode('utf-8')
+            print('*', end='', flush=True)
+    print()  # Salto de línea al final
+    return password
 
 """ def asignar_saldo_inicial(idporfolio):
     cargar_saldo_inicial(id_portafolio=idporfolio)
