@@ -1,11 +1,19 @@
 # Archivos de entorno
+# Archivos de entorno
 .env
 
 # Archivos de caché de Python
 __pycache__/
 
 # Ignorar carpetas específicas si es necesario
+
+# Archivos de caché de Python
+__pycache__/
+
+# Ignorar carpetas específicas si es necesario
 backend/__pycache__/
+backend/claseDAO/__pycache__
+consolaFrontend/__pycache__/
 backend/claseDAO/__pycache__
 consolaFrontend/__pycache__/
 negocio/__pycache__/

@@ -1,5 +1,6 @@
-import bcrypt
+import datetime
 import msvcrt
+import bcrypt
 from controllers.controllerPortafolio import cargar_saldo_inicial
 
 
@@ -31,6 +32,11 @@ def input_con_asteriscos(prompt):
     print()  # Salto de línea al final
     return password
 
-def asignar_saldo_inicial(idporfolio):
+""" def asignar_saldo_inicial(idporfolio):
     cargar_saldo_inicial(id_portafolio=idporfolio)
-    return "Se han asignado $1.000.000 de saldo inicial"
+    return "Se han asignado $1.000.000 de saldo inicial" """
+
+def definir_fecha_actual():
+    fecha_actual = datetime.now()
+    fecha_formato = fecha_actual.strftime('%Y-%m-%d')
+    return fecha_formato
