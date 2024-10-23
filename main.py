@@ -8,8 +8,7 @@ from service import servicioEmail
 # from negocio import servicioReglasNegocio
 
 def main():
-    controllerInicioSesion.inici1
-    o_sesion()
+    controllerInicioSesion.inicio_sesion()
 
 
 if __name__ == "__main__":
