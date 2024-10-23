@@ -1,4 +1,5 @@
-from controllers import controllerInicioSesion
+from consolaFrontend import menu_lista_acciones
+from controllers import controllerComprarAcciones, controllerInicioSesion
 from backend.clasesDAO import usuario_dao
 from negocio import servicioReglasNegocio, usuario
 from service import servicioEmail

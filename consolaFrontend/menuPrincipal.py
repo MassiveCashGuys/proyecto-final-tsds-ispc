@@ -1,4 +1,4 @@
-from controllers import controllerRegistrarInversor, controllerPortafolio
+from controllers import controllerComprarAcciones, controllerRegistrarInversor, controllerPortafolio
 def menu_principal():
     print(f'****************ARGBROKER****************')
     print(f'1- Comprar Acciones.')
@@ -15,8 +15,8 @@ def mostrar_menu_principal(inversor):
         opcion = int(input(f"Seleccione una opción (1-6): "))
         
         if opcion == 1:
-            print(f" Registrar Inversor")
-            controllerRegistrarInversor.menu_tipo_documento.mostar_menu_tipo_documento()
+            print(f"***** Comprar Acciones *****")
+            controllerComprarAcciones.mostrar_menu_comprar_acciones(inversor)
         elif opcion == 2:
             print(f" Opción 2.")
         elif opcion == 3:
