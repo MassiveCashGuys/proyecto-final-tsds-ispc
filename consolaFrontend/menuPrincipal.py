@@ -17,18 +17,21 @@ def mostrar_menu_principal(inversor):
         if opcion == 1:
             print(f" Registrar Inversor")
             controllerRegistrarInversor.menu_tipo_documento.mostar_menu_tipo_documento()
+            input("Presiona cualquier tecla para continuar...")
         elif opcion == 2:
-            print(f" Opción 2.")
+            print(f" Opción 2-en progreso de codificacion...")
+            input("  Presiona cualquier tecla para continuar...")
         elif opcion == 3:
             print(f"***** Saldo *****")
             print(f'${controllerPortafolio.obteder_portafolio(inversor.get_portafolio()).get_saldo_actual()}')
             input("Presiona cualquier tecla para continuar...")
         elif opcion == 4:
-            print(f"  Opción 4.")
-           
+            print(f"  Opción 4 - en progreso de codificacion...")
+            input("  Presiona cualquier tecla para continuar...")
             break
         elif opcion == 5:
-            print(f" Opción 5.")
+            print(f" Opción 5 - en progreso de codificacion...")
+            input("  Presiona cualquier tecla para continuar...")
             break
         elif opcion == 6:
             print(f"Saliendo del programa.")
