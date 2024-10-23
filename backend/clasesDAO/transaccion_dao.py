@@ -24,13 +24,13 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
              VALUES (%s, %s, %s, %s, %s, %s, %s)"""
 
              cursor.execute(query,(
-                 transaccion.get_fecha_hora(),
-                 transaccion.get_cantidad_acciones(),
-                 transaccion.get_precio(),
-                 transaccion.get_comision_broker(), 
-                 transaccion.get_inversor_cuit().get_cuit(), 
-                 transaccion.get_accion_id_accion().get_id_accion(), 
-                 transaccion.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()))
+                 objecTransaccion.get_fecha_hora(),
+                 objecTransaccion.get_cantidad_acciones(),
+                 objecTransaccion.get_precio(),
+                 objecTransaccion.get_comision_broker(), 
+                 objecTransaccion.get_inversor_cuit(), 
+                 objecTransaccion.get_accion_id_accion(), 
+                 objecTransaccion.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()))
              
              conn.commit()
              if cursor.rowcount == 1:

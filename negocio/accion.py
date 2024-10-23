@@ -1,17 +1,9 @@
 class Accion:
-<<<<<<< HEAD
     def __init__(self, id_accion, simbolo, nombre, cantidad, precio_venta_actual, cantidad_venta_diaria, fecha_apertura, minimo_diario, maximo_diario, ultimo_cierre, id_empresa):
         self.__id_accion = id_accion
         self.__simbolo = simbolo
         self.__nombre = nombre
         self.__cantidad = cantidad
-=======
-    def __init__(self, id_accion, simbolo, nombre, cantidad_compra_diaria, precio_venta_actual, cantidad_venta_diaria, fecha_apertura, minimo_diario, maximo_diario, ultimo_cierre, id_empresa):
-        self.__id_accion = id_accion
-        self.__simbolo = simbolo
-        self.__nombre = nombre
-        self.__cantidad_compra_diaria = cantidad_compra_diaria
->>>>>>> back
         self.__precio_venta_actual = precio_venta_actual
         self.__cantidad_venta_diaria = cantidad_venta_diaria
         self.__fecha_apertura = fecha_apertura
@@ -29,13 +21,8 @@ class Accion:
     def get_nombre(self):
         return self.__nombre
 
-<<<<<<< HEAD
     def get_cantidad(self):
         return self.__cantidad
-=======
-    def get_cantidad_compra_diaria(self):
-        return self.__cantidad_compra_diaria
->>>>>>> back
 
     def get_precio_venta_actual(self):
         return self.__precio_venta_actual
@@ -64,13 +51,8 @@ class Accion:
     def set_nombre(self, nombre):
         self.__nombre = nombre      
     
-<<<<<<< HEAD
     def set_cantidad(self, cantidad):
         self.__cantidad = cantidad      
-=======
-    def set_cantidad_compra_diaria(self, cantidad_compra_diaria):
-        self.__cantidad_compra_diaria = cantidad_compra_diaria      
->>>>>>> back
 
     def set_precio_venta_actual(self, precio_venta_actual):
         self.__precio_venta_actual = precio_venta_actual
@@ -92,10 +74,7 @@ class Accion:
 
     def set_id_empresa(self, id_empresa):
         self.__id_empresa = id_empresa  
-<<<<<<< HEAD
     
 
 
     
-=======
->>>>>>> back
