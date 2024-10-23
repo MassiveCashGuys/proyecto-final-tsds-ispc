@@ -10,6 +10,10 @@ class DataAccesDao(ABC):
         pass
     
     @abstractmethod
+    def get_by_fk(self, id_object):
+        pass
+
+    @abstractmethod
     def getAll(self):
         pass
 
