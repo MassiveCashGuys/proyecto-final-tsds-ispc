@@ -43,7 +43,10 @@ class Portafolio_Dao(interfazDao.DataAccesDao):
         except mysql.connector.Error as err:
             print("err.")
             raise err
-
+    
+    def get_by_fk(self, id_object):
+        pass
+    
     def getAll(self) -> list:
         try:
             conn = conexion.connect_to_db()

@@ -1,4 +1,4 @@
-from controllers import controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
+from controllers import controllerInversor, controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
 from negocio import usuario, servicioReglasNegocio
 from backend.clasesDAO.usuario_dao import Usuario_Dao
 from consolaFrontend import menu_recuperar_password
@@ -21,10 +21,11 @@ def mostar_menu_inicio_sesion():
      while True:
         menu_inicio_sesion()
         opcion = int(input(f"Seleccione una opción (1-5): "))
-
+        
         if opcion == 1: # Gus
             user = menu_inicio_login()
-
+            if user:
+               controllerMenuPrincipal.menu_principal(controllerInversor.obtener_inversor(user))
             """   Seguir con la validación de la contraseña despues!!!     
             aux = controllerInicioSesion.obtener_usuario(user.get_id_user())
             print(user)
@@ -34,7 +35,8 @@ def mostar_menu_inicio_sesion():
 
         elif opcion == 2:
             print(f"Nuevo Usuario.")
-            controllerRegistrarInversor.cargar_menu_registro_inversor()
+            inversor = controllerRegistrarInversor.cargar_menu_registro_inversor()
+            controllerMenuPrincipal.menu_principal(inversor)
         elif opcion == 3:
             menu_recuperar_password.menu_recuperar_contraseña()
              
