@@ -14,6 +14,8 @@ def validar_password(password, password_has):
     password_has = password_has.encode('utf-8')
     return bcrypt.checkpw(password.encode('utf-8'), password_has)
 
+
+
 # Método para ocultar la contraseña con asteriscos
 def input_con_asteriscos(prompt):
     print(prompt, end='', flush=True)
