@@ -56,6 +56,8 @@ class Usuario_Dao(interfazDao.DataAccesDao):
             print("Error:", err)
             raise err
     
+    def get_by_fk(self, id_object):
+        pass
     
     def getAll(self) -> list:
         try:

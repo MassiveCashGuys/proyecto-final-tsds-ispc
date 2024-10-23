@@ -1,15 +1,15 @@
-from controllers import controllerRegistrarInversor
+from controllers import controllerRegistrarInversor, controllerPortafolio
 def menu_principal():
     print(f'****************ARGBROKER****************')
-    print(f'1- Registrar Inversor.')
-    print(f'2- Opción.')
-    print(f'3- Opción.')
+    print(f'1- Comprar Acciones.')
+    print(f'2- Vender Acciones.')
+    print(f'3- Ver Saldo.')
     print(f'4- Opción.')
     print(f'5- Opción.')
     print(f'6- Cerrar sesión y salir del sistema.')
     
 
-def mostrar_menu_principal():
+def mostrar_menu_principal(inversor):
     while True:
         menu_principal()
         opcion = int(input(f"Seleccione una opción (1-6): "))
@@ -20,9 +20,12 @@ def mostrar_menu_principal():
         elif opcion == 2:
             print(f" Opción 2.")
         elif opcion == 3:
-            print(f" Opción 3")
+            print(f"***** Saldo *****")
+            print(f'${controllerPortafolio.obteder_portafolio(inversor.get_portafolio()).get_saldo_actual()}')
+            input("Presiona cualquier tecla para continuar...")
         elif opcion == 4:
-            print(f" Opción 4.")
+            print(f"  Opción 4.")
+           
             break
         elif opcion == 5:
             print(f" Opción 5.")
