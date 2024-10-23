@@ -48,4 +48,7 @@ def formato_fecha():
 
 def formato_fecha_hora():
     return '%Y-%m-%d-%H:%M:%S'
+
+def calcular_comision_broker( monto):
+    return 0.015 * monto
      
