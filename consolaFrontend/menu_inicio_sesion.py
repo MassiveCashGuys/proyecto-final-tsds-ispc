@@ -1,6 +1,7 @@
 # Gustavo 
 # Tarea 14 y 16
 from backend.clasesDAO.usuario_dao import Usuario_Dao
+from controllers import controllerInversor
 from negocio import servicioReglasNegocio
 
 
@@ -22,12 +23,14 @@ def menu_inicio_login():
 
     if user:        
 
+        inversor = controllerInversor.obtener_inversor(user)
+
         # Verifica si la contraseña es correcta
         if servicioReglasNegocio.validar_password(password, user.get_password()):
             print("\n")
             print(" ✅ Ingreso correcto ✅")
             print("\n")
-            print("Bienvenido " + user.get_id_user() + " 🙋‍♂️ 🙋‍♀️") # Cambiar para que agregue el nombre desde inventario.
+            print("Bienvenido " + inversor.get_nombre().upper() + " " + inversor.get_apellido().upper() + " 🙋‍♂️ 🙋‍♀️") # Cambiar para que agregue el nombre desde inventario.
             print("\n")            
             return user
         else:

@@ -14,8 +14,24 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" INSERT INTO transaccion (fecha_hora, cantidad_acciones, precio, comision_broker, inversor_cuit, accion_id_accion, tipo_transaccion_id_tipo_transaccion) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-             cursor.execute(query,(objecTransaccion.get_fecha_hora(),objecTransaccion.get_cantidad_acciones(),objecTransaccion.get_precio(),objecTransaccion.get_comision_broker(),objecTransaccion.get_inversor_cuit(),objecTransaccion.get_accion_id_accion(),objecTransaccion.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()))
+             query=""" INSERT INTO transaccion (fecha_hora, 
+             cantidad_acciones, 
+             precio, 
+             comision_broker, 
+             inversor_cuit, 
+             accion_id_accion, 
+             tipo_transaccion_id_tipo_transaccion) 
+             VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+
+             cursor.execute(query,(
+                 transaccion.get_fecha_hora(),
+                 transaccion.get_cantidad_acciones(),
+                 transaccion.get_precio(),
+                 transaccion.get_comision_broker(), 
+                 transaccion.get_inversor_cuit().get_cuit(), 
+                 transaccion.get_accion_id_accion().get_id_accion(), 
+                 transaccion.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()))
+             
              conn.commit()
              if cursor.rowcount == 1:
                 return True
@@ -53,7 +69,7 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
              cursor.execute(query)
              rows = cursor.fetchall()
              if rows:
-                return [transaccion.Transaccion(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7]) for row in rows]
+                return [transaccion.Transaccion(row[0],row[1],row[2],row[3],row[4],row[5],row[6]) for row in rows]
              else:
                 return None
          except mysql.connector.Error as err:

@@ -58,4 +58,10 @@ class Transaccion:
         self.__tipo_transaccion_id_tipo_transaccion = tipo_transaccion_id_tipo_transaccion
 
     def __str__(self):
+<<<<<<< HEAD
         return str(f'Numero de transacció: {self.get_id_transaccion()}, Fecha:{self.get_fecha_hora()}, Cantidad:{self.get_cantidad_acciones()}, Precio:{self.get_precio()}, Comisión: {self.get_comision_broker()}, Ciut: {self.get_inversor_cuit()}, Acción: {self.get_accion_id_accion()}, id Transacción:{self.get_tipo_transaccion_id_tipo_transaccion()}')
+=======
+        return str(f'Numero de transacción: {self.get_id_transaccion()}, Fecha:{self.get_fecha_hora()}, Cantidad:{self.get_cantidad_acciones()}, Precio:{self.get_precio()}, Comisión: {self.get_comision_broker()}, Ciut: {self.get_inversor_cuit()}, Acción: {self.get_accion_id_accion()}, id Transacción:{self.get_tipo_transaccion_id_tipo_transaccion()}')
+    
+        
+>>>>>>> back

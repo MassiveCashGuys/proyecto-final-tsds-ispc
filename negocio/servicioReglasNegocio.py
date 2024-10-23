@@ -14,6 +14,8 @@ def validar_password(password, password_has):
     password_has = password_has.encode('utf-8')
     return bcrypt.checkpw(password.encode('utf-8'), password_has)
 
+
+
 # Método para ocultar la contraseña con asteriscos
 def input_con_asteriscos(prompt):
     print(prompt, end='', flush=True)
@@ -46,6 +48,10 @@ def formato_fecha():
 
 def formato_fecha_hora():
     return '%Y-%m-%d-%H:%M:%S'
+<<<<<<< HEAD
 
 def calcular_comision_broker( monto):
     return 0.015 * monto
+=======
+     
+>>>>>>> back
