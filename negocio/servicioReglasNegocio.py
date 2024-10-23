@@ -36,7 +36,14 @@ def input_con_asteriscos(prompt):
     cargar_saldo_inicial(id_portafolio=idporfolio)
     return "Se han asignado $1.000.000 de saldo inicial" """
 
-def definir_fecha_actual():
-    fecha_actual = datetime.now()
-    fecha_formato = fecha_actual.strftime('%Y-%m-%d')
+def definir_fecha_actual(formato):
+    fecha_actual = datetime.datetime.now()
+    fecha_formato = fecha_actual.strftime(formato)
     return fecha_formato
+
+def formato_fecha():
+    return '%Y-%m-%d'
+
+def formato_fecha_hora():
+    return '%Y-%m-%d-%H:%M:%S'
+     
