@@ -6,10 +6,10 @@ from backend.clasesDAO import inversor_dao
 def pw_es_valido(password):
     return 8 <= len(password) <= 16 and re.search(r'[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]', password) is not None
 
-
-#def validacion_existencia_datos(object_dao,valor_a_validar):
-#    return object_dao.get(valor_a_validar)
-
+"""
+def validacion_existencia_datos(object_dao,valor_a_validar):
+    return object_dao.get(valor_a_validar)
+"""
 
 def tipo_de_dato(funcion_de_tipo,variable_de_tipo):
 
@@ -34,10 +34,8 @@ def valida_existencia_mail_bd(email):
     user = user_dao.get(email)
     
     if user is None and validar_formato_email(email):
-        #print(f'el email no existe en la bd')
         return True
     else:
-        #print(f'el email SI existe en la bd')
         return False
 
 
