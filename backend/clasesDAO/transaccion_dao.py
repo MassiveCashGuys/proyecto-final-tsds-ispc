@@ -9,18 +9,37 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
         pass
     
     
-    def create(self,transaccion):
+    def create(self,objecTransaccion):
       
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" INSERT INTO transaccion (fecha_hora, cantidad_acciones, precio, comision_broker) VALUES (%s, %s, %s, %s)"
-             cursor.execute(query,(transaccion.get_fecha_hora(),transaccion.get_cantidad_acciones(),transaccion.get_precio(),transaccion.get_comision_broker()))
+             query=""" INSERT INTO transaccion (fecha_hora, 
+             cantidad_acciones, 
+             precio, 
+             comision_broker, 
+             inversor_cuit, 
+             accion_id_accion, 
+             tipo_transaccion_id_tipo_transaccion) 
+             VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+
+             cursor.execute(query,(
+                 objecTransaccion.get_fecha_hora(),
+                 objecTransaccion.get_cantidad_acciones(),
+                 objecTransaccion.get_precio(),
+                 objecTransaccion.get_comision_broker(), 
+                 objecTransaccion.get_inversor_cuit(), 
+                 objecTransaccion.get_accion_id_accion(), 
+                 objecTransaccion.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()))
+             
              conn.commit()
              if cursor.rowcount == 1:
-                return True
+                 new_id = cursor.lastrowid
+                 lastDetallePortafolio = self.get( new_id)
+                 return lastDetallePortafolio
+               
              else:
-                return False
+                return None
          except mysql.connector.Error as err:
              print("err.")
              raise err
@@ -41,7 +60,9 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
          except mysql.connector.Error as err:
              print("err.")
              raise err 
-        
+     
+    def get_by_fk(self, id_object):
+        pass   
     
     def getAll(self)->list:
          try:
@@ -51,7 +72,7 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
              cursor.execute(query)
              rows = cursor.fetchall()
              if rows:
-                return [transaccion.Transaccion(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7]) for row in rows]
+                return [transaccion.Transaccion(row[0],row[1],row[2],row[3],row[4],row[5],row[6]) for row in rows]
              else:
                 return None
          except mysql.connector.Error as err:

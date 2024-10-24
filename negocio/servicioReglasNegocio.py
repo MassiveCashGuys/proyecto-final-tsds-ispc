@@ -14,6 +14,8 @@ def validar_password(password, password_has):
     password_has = password_has.encode('utf-8')
     return bcrypt.checkpw(password.encode('utf-8'), password_has)
 
+
+
 # Método para ocultar la contraseña con asteriscos
 def input_con_asteriscos(prompt):
     print(prompt, end='', flush=True)
@@ -36,7 +38,17 @@ def input_con_asteriscos(prompt):
     cargar_saldo_inicial(id_portafolio=idporfolio)
     return "Se han asignado $1.000.000 de saldo inicial" """
 
-def definir_fecha_actual():
-    fecha_actual = datetime.now()
-    fecha_formato = fecha_actual.strftime('%Y-%m-%d')
+def definir_fecha_actual(formato):
+    fecha_actual = datetime.datetime.now()
+    fecha_formato = fecha_actual.strftime(formato)
     return fecha_formato
+
+def formato_fecha():
+    return '%Y-%m-%d'
+
+def formato_fecha_hora():
+    return '%Y-%m-%d-%H:%M:%S'
+
+def calcular_comision_broker( monto):
+    return 0.015 * monto
+     

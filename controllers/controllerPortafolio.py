@@ -14,4 +14,8 @@ def crear_portafolio()->portafolio.Portafolio:
 def obteder_portafolio(idPortafolio):
       nuevo_portafolio_dao = portafolio_dao.Portafolio_Dao()
       return nuevo_portafolio_dao.get(idPortafolio)
+
+def actualizar_saldo_portafolio(portafolio):
+    nuevo_portafolio_dao = portafolio_dao.Portafolio_Dao()
+    return nuevo_portafolio_dao.update(portafolio.get_id_portafolio(), portafolio.get_saldo_actual())
     

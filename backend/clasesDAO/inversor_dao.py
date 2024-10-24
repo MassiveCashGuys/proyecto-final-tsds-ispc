@@ -41,7 +41,22 @@ class InversorDao(interfazDao.DataAccesDao):
          except mysql.connector.Error as err:
              print("err.")
              raise err 
-        
+    
+    def get_by_fk(self, fk_objectInversor)->inversor.Inversor:
+         try:
+             conn = conexion.connect_to_db()
+             cursor = conn.cursor()
+             query=" SELECT * FROM inversor WHERE id_usuario= %s"
+             cursor.execute(query,(fk_objectInversor,))
+             row = cursor.fetchone()
+             conn.commit()
+             if row:
+                return inversor.Inversor(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
+             else:
+                return None
+         except mysql.connector.Error as err:
+             print("err.")
+             raise err   
  
     def getAll(self)->list:
          try:
