@@ -34,9 +34,12 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
              
              conn.commit()
              if cursor.rowcount == 1:
-                return True
+                 new_id = cursor.lastrowid
+                 lastDetallePortafolio = self.get( new_id)
+                 return lastDetallePortafolio
+               
              else:
-                return False
+                return None
          except mysql.connector.Error as err:
              print("err.")
              raise err
