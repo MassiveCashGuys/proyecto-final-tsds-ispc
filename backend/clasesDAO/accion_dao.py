@@ -68,7 +68,7 @@ class AccionDao(interfazDao.DataAccesDao):
                  A.fecha_apertura, A.minimo_diario, A.maximo_diario, A.ultimo_cierre, E.id_empresa, E.nombre,
                  E.razon_social, E.descripcion
                  FROM accion A
-                 JOIN empresa E ON A.id_empresa = E.id_empresa
+                 JOIN empresa E ON A.id_empresa = E.id_empresa where A.cantidad > 0
              """
              cursor.execute(query)
              rows = cursor.fetchall()

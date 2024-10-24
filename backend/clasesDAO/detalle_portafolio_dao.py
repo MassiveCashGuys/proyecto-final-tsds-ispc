@@ -25,7 +25,7 @@ class Detalle_Portafolio_Dao:
                 detalle_portafolio.get_precio_por_accion(),
                 detalle_portafolio.get_fecha_compra(),
                 detalle_portafolio.get_accion_id_accion().get_id_accion(),
-                detalle_portafolio.get_portafolio_id_portafolio().get_id_portafolio()
+                detalle_portafolio.get_portafolio_id_portafolio()
                 ))
             
             conn.commit()
