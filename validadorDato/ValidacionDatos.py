@@ -1,5 +1,5 @@
 import re
-
+from controllers import controllerInicioSesion
 
 def cuit_es_valido(cuit):
     return len(cuit) == 11 and cuit.isdigit()
@@ -17,6 +17,7 @@ def pw_es_valido(password):
 def validacion_existencia_datos(object_dao,valor_a_validar):
     return object_dao.get(valor_a_validar)
 
+
 def tipo_de_dato(funcion_de_tipo,variable_de_tipo):
 
         while True:
@@ -25,6 +26,9 @@ def tipo_de_dato(funcion_de_tipo,variable_de_tipo):
             else: 
                 variable_de_tipo = funcion_de_tipo()
 
+
 def extraccion_num_documento(cuit):
      num_documento = cuit[2:(len(cuit) - 1)]
      return ("0" * (8-len(num_documento)) + num_documento)
+
+
