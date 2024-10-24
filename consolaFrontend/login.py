@@ -27,13 +27,7 @@ def mostar_menu_inicio_sesion():
             user = menu_inicio_login()
             if user:
                controllerMenuPrincipal.menu_principal(controllerInversor.obtener_inversor(user))
-            """   Seguir con la validación de la contraseña despues!!!     
-            aux = controllerInicioSesion.obtener_usuario(user.get_id_user())
-            print(user)
-            print(aux)
-            validar_ingreso(aux, user.get_password())
-            """
-
+            
         elif opcion == 2:
             print(f"Nuevo Usuario.")
             inversor = controllerRegistrarInversor.cargar_menu_registro_inversor()

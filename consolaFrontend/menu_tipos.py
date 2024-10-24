@@ -1,11 +1,12 @@
 def menu_tipo(titulo, moduloController):
     print(f"*******{titulo}*******")
     lista_tipo =  moduloController.obtener_lista_tipo()
-   
+    i=1
     for doc in lista_tipo :
-        print(f'{doc.get_nombre()} - {doc.get_descripcion()} ')
+        print(f'{i} - {doc.get_nombre()}')
+        i+=1
     return lista_tipo
-
+""" - {doc.get_descripcion()}  """
 
 def mostar_menu_tipo(titulo, moduloController, ingresoDato):
         lista = menu_tipo(titulo, moduloController)
