@@ -1,4 +1,4 @@
-from controllers import controllerComprarAcciones, controllerRegistrarInversor, controllerPortafolio
+from controllers import controllerComprarAcciones, controllerRegistrarInversor, controllerPortafolio, controllerTransaccion
 
 
 def menu_principal():
@@ -33,6 +33,7 @@ def mostrar_menu_principal(inversor):
 
         elif opcion == 4:
             print(f"  *** Historial de transacciones ***")
+            controllerTransaccion.listar_transacciones(inversor)
             input("  Presiona cualquier tecla para continuar...")
             break
 
