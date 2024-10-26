@@ -15,10 +15,10 @@ def tipo_de_dato(funcion_de_tipo,variable_de_tipo):
 
         while True:
             if variable_de_tipo:
-                break
+                return variable_de_tipo
             else: 
                 variable_de_tipo = funcion_de_tipo()
-
+                return 
 
 def extraccion_num_documento(cuit):
      num_documento = cuit[2:(len(cuit) - 1)]

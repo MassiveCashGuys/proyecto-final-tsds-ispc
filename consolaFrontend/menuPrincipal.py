@@ -35,7 +35,7 @@ def mostrar_menu_principal(inversor):
             print(f"  *** Historial de transacciones ***")
             controllerTransaccion.listar_transacciones(inversor)
             input("  Presiona cualquier tecla para continuar...")
-            break
+            
 
         elif opcion == 5:
             print(f" Opción 5 - en progreso de codificacion...")
