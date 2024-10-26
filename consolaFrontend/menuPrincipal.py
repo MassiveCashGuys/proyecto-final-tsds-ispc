@@ -27,8 +27,9 @@ def mostrar_menu_principal(inversor):
 
         elif opcion == 3:
             print(f"***** Saldo *****")
+            portfolio = controllerPortafolio.obteder_portafolio(inversor.get_portafolio().get_id_portafolio())
             print(
-                f'${controllerPortafolio.obteder_portafolio(inversor.get_portafolio()).get_saldo_actual()}')
+                f'${portfolio.get_saldo_actual()}')
             input("Presiona cualquier tecla para continuar...")
 
         elif opcion == 4:

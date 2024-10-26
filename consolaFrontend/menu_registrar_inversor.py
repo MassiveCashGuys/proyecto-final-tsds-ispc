@@ -25,16 +25,17 @@ def solicitar_datos_inversor():
     nombre = input(f'Ingrese su nombre: ')
    
     apellido = input(f'Ingrese su apellido: ')
+
     print(f'Ingrese una contraseña entre 8-16 digitos que contenga algún caracter especial y números.')
     pas = input(f'Contraseña: ')
-
     #confirmación de datos son correctos
-    
     pas= reingrese_dato(validadorDato.ValidacionDatos.pw_es_valido,pas,"Ingrese una contraseña")
     pasHas= servicioReglasNegocio.crear_encriptacion_password(pas)
+
     nuevo_usuario = usuario.Usuario(email, pasHas, 2)
     nuevo_portafolio = controllerPortafolio.crear_portafolio()
     nuevoInversor = inversor.Inversor(cuit, numero_documento, nombre, apellido, nuevo_portafolio, nuevo_tipo_inversor, nuevo_tipo_documento, nuevo_usuario)
+    
     return controllerRegistrarInversor.crear_inversor(nuevoInversor)
     
 

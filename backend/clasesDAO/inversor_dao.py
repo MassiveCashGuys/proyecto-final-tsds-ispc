@@ -2,7 +2,7 @@ from abc import ABC
 import mysql.connector
 from backend import interfazDao
 from backend import conexion
-from negocio import inversor
+from negocio import inversor, portafolio
 
 class InversorDao(interfazDao.DataAccesDao):
     def __init__(self):
@@ -53,12 +53,15 @@ class InversorDao(interfazDao.DataAccesDao):
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" SELECT * FROM inversor WHERE id_usuario= %s"
+             query=""" SELECT I.cuit, I.numero_documento, I.nombre, I.apellido, P.id_portafolio, P.saldo_actual, P.fecha_inicio, I.id_tipo_inversor, I.id_tipo_documento, I.id_usuario
+                        FROM inversor I
+                        JOIN portafolio P ON P.id_portafolio = I.id_portafolio
+                        WHERE I.id_usuario =  %s"""
              cursor.execute(query,(fk_objectInversor,))
              row = cursor.fetchone()
              conn.commit()
              if row:
-                return inversor.Inversor(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
+                return inversor.Inversor(row[0],row[1],row[2],row[3],portafolio.Portafolio(row[4],row[5],row[6]),row[7],row[8],row[9])
              else:
                 return None
          except mysql.connector.Error as err:
@@ -111,5 +114,3 @@ class InversorDao(interfazDao.DataAccesDao):
         
     
 
-   
-   
