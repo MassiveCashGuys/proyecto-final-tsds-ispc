@@ -1,4 +1,4 @@
-from controllers import controllerComprarAcciones, controllerRegistrarInversor, controllerPortafolio
+from controllers import controllerComprarAcciones, controllerRegistrarInversor, controllerPortafolio, controllerTransaccion
 
 
 def menu_principal():
@@ -27,14 +27,16 @@ def mostrar_menu_principal(inversor):
 
         elif opcion == 3:
             print(f"***** Saldo *****")
+            portfolio = controllerPortafolio.obteder_portafolio(inversor.get_portafolio().get_id_portafolio())
             print(
-                f'${controllerPortafolio.obteder_portafolio(inversor.get_portafolio()).get_saldo_actual()}')
+                f'${portfolio.get_saldo_actual()}')
             input("Presiona cualquier tecla para continuar...")
 
         elif opcion == 4:
             print(f"  *** Historial de transacciones ***")
+            controllerTransaccion.listar_transacciones(inversor)
             input("  Presiona cualquier tecla para continuar...")
-            break
+            
 
         elif opcion == 5:
             print(f" Opción 5 - en progreso de codificacion...")

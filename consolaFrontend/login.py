@@ -32,6 +32,8 @@ def mostar_menu_inicio_sesion():
             print(f"Nuevo Usuario.")
             inversor = controllerRegistrarInversor.cargar_menu_registro_inversor()
             controllerMenuPrincipal.menu_principal(inversor)
+            break
+        
         elif opcion == 3:
             menu_recuperar_password.menu_recuperar_contraseña()
              
