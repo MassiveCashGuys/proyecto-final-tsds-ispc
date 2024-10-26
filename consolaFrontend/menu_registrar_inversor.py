@@ -35,8 +35,8 @@ def solicitar_datos_inversor():
 
         print("\n*******Verifique los datos ingresados*******")
 
-        print(f"Tipo de Inversor: {nuevo_tipo_inversor}")
-        print(f"Tipo de Documento: {nuevo_tipo_documento}")
+        print(f"Tipo de Inversor: {nuevo_tipo_inversor.get_nombre()}")
+        print(f"Tipo de Documento: {nuevo_tipo_documento.get_nombre()}")
         print(f"CUIT: {cuit}")
         print(f"Correo: {email}")
         print(f"Nombre: {nombre}")
