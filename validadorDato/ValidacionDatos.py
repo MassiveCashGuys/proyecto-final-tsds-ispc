@@ -7,9 +7,6 @@ from negocio import servicioReglasNegocio
 def pw_es_valido(password):
     return 8 <= len(password) <= 16 and re.search(r'[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]', password) is not None
 
-def verificar_contraseña_actual(usuario, contraseña_ingresada):
-    return servicioReglasNegocio.validar_password(contraseña_ingresada, usuario.get_password())
-
 
 def tipo_de_dato(funcion_de_tipo,variable_de_tipo):
 

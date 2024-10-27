@@ -43,6 +43,7 @@ def mostar_menu_inicio_sesion():
         elif opcion == 5:
             print(f"Saliendo del programa.")
             break
+        
         else:
             print("Opción no válida. Por favor, elija una opción del 1 al 5.")
 
