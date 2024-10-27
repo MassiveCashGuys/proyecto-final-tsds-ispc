@@ -77,11 +77,3 @@ class Accion:
     
 
 
-    def __str__(self):
-        print(f''
-            id_accion: {self.__id_accion},
-            simbolo: {self.__simbolo},
-            nombre: {self.__nombre},
-            cantidad: {self.__cantidad},
-            precio_venta_actual: {self.__precio_venta_actual},
-            cantidad_venta_diaria: {self.__cantidad_venta_diaria},)
