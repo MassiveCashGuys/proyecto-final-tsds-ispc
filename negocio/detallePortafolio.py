@@ -1,29 +1,29 @@
 class DetallePortafolio:
     def __init__(
-            self,             
-            id_detalle_portafolio, 
+            self,
+            id_detalle_portafolio,
             cantidad_acciones_compradas,
-            precio_por_accion, 
-            fecha_compra, 
-            accion_id_accion, 
+            precio_por_accion,
+            fecha_compra,
+            accion_id_accion,
             portafolio_id_portafolio):
-        
+
         self.__id_detalle_portafolio = id_detalle_portafolio
         self.__cantidad_acciones_compradas = cantidad_acciones_compradas
         self.__precio_por_accion = precio_por_accion
         self.__fecha_compra = fecha_compra
-        self.__accion_id_accion = accion_id_accion  
+        self.__accion_id_accion = accion_id_accion
         self.__portafolio_id_portafolio = portafolio_id_portafolio
 
     def get_id_detalle_portafolio(self):
         return self.__id_detalle_portafolio
-    
+
     def get_cantidad_acciones_compradas(self):
         return self.__cantidad_acciones_compradas
 
     def get_precio_por_accion(self):
         return self.__precio_por_accion
-    
+
     def get_fecha_compra(self):
         return self.__fecha_compra
 
@@ -32,7 +32,7 @@ class DetallePortafolio:
 
     def get_portafolio_id_portafolio(self):
         return self.__portafolio_id_portafolio
-    
+
     def set_id_detalle_portafolio(self, id_detalle_portafolio):
         self.__id_detalle_portafolio = id_detalle_portafolio
 
