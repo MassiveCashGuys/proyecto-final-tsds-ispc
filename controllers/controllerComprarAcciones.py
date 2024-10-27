@@ -11,7 +11,7 @@ def verificar_saldo(saldo_actual_portafolio, total_del_valor_compra):
 def mostrar_menu_comprar_acciones(inversor):
     accion = menu_lista_acciones.menu_accion()
     portafolio_del_inversor = controllerPortafolio.obteder_portafolio(
-        inversor.get_portafolio())
+        inversor.get_portafolio().get_id_portafolio())
 
     saldo_actual_portafolio = portafolio_del_inversor.get_saldo_actual()
 
@@ -44,7 +44,7 @@ def mostrar_menu_comprar_acciones(inversor):
         nueva_transaccion)
     controllerAccion.actualizar_accion(accion)
     portafolio_actual = controllerPortafolio.obteder_portafolio(
-        inversor.get_portafolio())
+        inversor.get_portafolio().get_id_portafolio())
     portafolio_actual.set_saldo_actual(portafolio_actual.get_saldo_actual(
     ) - (accion.get_precio_venta_actual()*cantidad_comprada) - transaccion_creada.get_comision_broker())
     print(portafolio_actual.get_saldo_actual())
@@ -56,4 +56,4 @@ def mostrar_menu_comprar_acciones(inversor):
         accion.get_precio_venta_actual(),
         transaccion_creada.get_fecha_hora(),
         accion,
-        inversor.get_portafolio()))
+        inversor.get_portafolio().get_id_portafolio()))
