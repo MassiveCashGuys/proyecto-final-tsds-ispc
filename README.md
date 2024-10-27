@@ -16,7 +16,7 @@ Subimos por separado los archivos de las imágenes del modelo relacional y el mo
 
 **Programación:** [Link a la Carpeta](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/tree/back/documentaci%C3%B3n/Programacion)
 
-**Base de Datos:** [Link a la Carpeta]([//github.com/MassiveCashGuys/proyecto-final-tsds-ispc/tree/back/documentaci%C3%B3n/BaseDeDatos](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/tree/back/documentaci%C3%B3n/BaseDeDatos))
+**Base de Datos:** [Link a la Carpeta](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/tree/back/documentaci%C3%B3n/BaseDeDatos)
 
 **Competencias Comunicacionales II:** [Link a la Carpeta]()
 
