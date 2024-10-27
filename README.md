@@ -14,11 +14,11 @@ Subimos por separado los archivos de las imágenes del modelo relacional y el mo
 
 ## Segunda Etapa:
 
-**Programación: **
+**Programación:**
 
-**Base de Datos: **
+**Base de Datos:**
 
-**Competencias Comunicacionales II: **
+**Competencias Comunicacionales II:**
 
 ---
 
