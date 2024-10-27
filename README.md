@@ -1,10 +1,24 @@
 # Proyecto Final - TSDS - ISPC
 
+---
+
+## Primer Etapa:
+
 **Proyecto Final del Módulo Programador del 1er año de Tecnicatura Superior en Desarrollo de Software ISPC.**
 
 **Acceso rápido a Wiki:** [Wiki del Proyecto](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/wiki)
 
 Subimos por separado los archivos de las imágenes del modelo relacional y el modelo de clases para su mejor lectura.
+
+---
+
+## Segunda Etapa:
+
+**Programación**
+
+**Base de Datos**
+
+**Competencias Comunicacionales II**
 
 ---
 
@@ -49,7 +63,7 @@ ISPC Cba, como broker autorizado, busca ofrecer una herramienta de simulación f
 
 ---
 
-## Instrucciones de Instalación
+## Instrucciones de Instalación-Entorno
 
 1. **Crear un entorno virtual:**  
    Dentro del proyecto en la raíz, desde la terminal ejecutar el siguiente comando:  
