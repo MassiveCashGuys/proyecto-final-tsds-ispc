@@ -1,4 +1,4 @@
-from controllers import controllerComprarAcciones, controllerRegistrarInversor, controllerPortafolio, controllerTransaccion
+from controllers import controllerComprarAcciones, controllerVenderAcciones, controllerRegistrarInversor, controllerPortafolio, controllerTransaccion
 
 
 def menu_principal():
@@ -22,7 +22,8 @@ def mostrar_menu_principal(inversor):
             input("Presiona cualquier tecla para continuar...")
 
         elif opcion == 2:
-            print(f" Opción 2-en progreso de codificacion...")
+            print(f"***** Vender Acciones *****")
+            controllerVenderAcciones.mostrar_menu_vender_acciones(inversor)
             input("  Presiona cualquier tecla para continuar...")
 
         elif opcion == 3:
