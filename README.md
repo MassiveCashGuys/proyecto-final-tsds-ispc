@@ -14,11 +14,11 @@ Subimos por separado los archivos de las imágenes del modelo relacional y el mo
 
 ## Segunda Etapa:
 
-**Programación:**
+**Programación:** [Link a la Carpeta]()
 
-**Base de Datos:**
+**Base de Datos:** [Link a la Carpeta]()
 
-**Competencias Comunicacionales II:**
+**Competencias Comunicacionales II:** [Link a la Carpeta]()
 
 ---
 
