@@ -49,8 +49,8 @@ def mostrar_menu_comprar_acciones(inversor):
     ) - (accion.get_precio_venta_actual()*cantidad_comprada) - transaccion_creada.get_comision_broker())
     print(portafolio_actual.get_saldo_actual())
     controllerPortafolio.actualizar_saldo_portafolio(portafolio_actual)
-    """ nuevoDetallePortafolio=portafolio.Detalle_Portafolio(portafolio_actual.get_id_portafolio(), transaccion_creada.get_id_transaccion(), accion.get_cantidad()) """
-    controllerDetallePortafolio.crear_detalle_portafolio(detallePortafolio.DetallePortafolio(
+    controllerDetallePortafolio.crear_detalle_portafolio(
+        detallePortafolio.DetallePortafolio(
         None,
         transaccion_creada.get_cantidad_acciones(),
         accion.get_precio_venta_actual(),

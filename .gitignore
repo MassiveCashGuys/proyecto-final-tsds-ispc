@@ -23,6 +23,10 @@ validadorDato/__pycache__/
 backend/__pycache__
 backend/clasesDAO/__pycache__
 backend\clasesDAO\__pycache__
-backend/clasesDAO/__pycache__/
+env
+backend/env
+
 # Ignorar la carpeta entorno si es necesario
 entorno/
+backend/clasesDAO/__pycache__
+validadorDato/__pycache__/

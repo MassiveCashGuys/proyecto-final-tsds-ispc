@@ -2,7 +2,7 @@ from abc import ABC
 import mysql.connector
 from backend import interfazDao
 from backend import conexion
-from negocio import transaccion
+from negocio import accion, tipoTransaccion, transaccion
 
 
 class Transaccion_Dao(interfazDao.DataAccesDao):
@@ -66,19 +66,36 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
         try:
             conn = conexion.connect_to_db()
             cursor = conn.cursor()
-            query = " SELECT * FROM transaccion where inversor_cuit = %s"
-            cursor.execute(query,
-                           id_inversor
-                           )
+            query = """SELECT 
+                        T.id_transaccion,
+                        T.fecha_hora,
+                        T.cantidad_acciones,
+                        T.precio,                        
+                        A.id_accion,
+                        A.simbolo,
+                        A.nombre,  
+                        T.tipo_transaccion_id_tipo_transaccion, 
+                        TP.nombre                
+                    FROM 
+                        transaccion T
+                    JOIN accion A ON A.id_accion = T.accion_id_accion
+                    JOIN tipo_transaccion TP ON TP.id_tipo_transaccion = T.tipo_transaccion_id_tipo_transaccion
+                    where 
+                        T.inversor_cuit = %s"""
+            cursor.execute(query, id_inversor)
             rows = cursor.fetchall()
 
             if rows:
-                return [transaccion.Transaccion(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7]) for row in rows]
+                return [transaccion.Transaccion(row[0], row[1], row[2], row[3], None, None,
+                        accion.Accion(row[4],row[5],row[6],None,None,None,None,None,None,None,None), tipoTransaccion.TipoTransaccion(row[7],row[8],None)) for row in rows]
             else:
                 return None
         except mysql.connector.Error as err:
-            print("err.")
-            raise err
+            print(f"Error: {err}")
+            raise
+        finally:
+            cursor.close()
+            conn.close()
 
     def getAll(self) -> list:
         try:
