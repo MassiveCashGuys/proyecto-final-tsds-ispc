@@ -37,7 +37,7 @@ def listar_compras(inversor):
         total = -1
         
         for compra in transacciones_x_inversor:
-            if int(compra.get_tipo_transaccion_id_tipo_transaccion()) == 1:
+            if int(compra.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()) == 2:
                 print(mostrar_compras(compra))  # Usar mostrar_compras para cada compra
                 print("\n")
                 total += compra.get_precio()  # Sumar el precio de las compras    
@@ -67,7 +67,7 @@ def mostrar_compras(compra):
             f'Cantidad: {compra.get_cantidad_acciones()}, '
             f'Precio: {compra.get_precio()}, '
             f'Acción: {compra.get_accion_id_accion().get_simbolo()}, '
-            f'ID Transacción: {compra.get_tipo_transaccion_id_tipo_transaccion()}')
+            f'Transacción: {compra.get_tipo_transaccion_id_tipo_transaccion().get_nombre()}')
 
 
 

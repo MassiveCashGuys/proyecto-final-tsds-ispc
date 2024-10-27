@@ -2,7 +2,7 @@ from abc import ABC
 import mysql.connector
 from backend import interfazDao
 from backend import conexion
-from negocio import accion, transaccion
+from negocio import accion, tipoTransaccion, transaccion
 
 
 class Transaccion_Dao(interfazDao.DataAccesDao):
@@ -73,13 +73,12 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
                         T.precio,                        
                         A.id_accion,
                         A.simbolo,  
-                        T.tipo_transaccion_id_tipo_transaccion                 
+                        T.tipo_transaccion_id_tipo_transaccion, 
+                        TP.nombre                
                     FROM 
                         transaccion T
-                    JOIN 
-                        accion A 
-                    ON 
-                        A.id_accion = T.accion_id_accion 
+                    JOIN accion A ON A.id_accion = T.accion_id_accion
+                    JOIN tipo_transaccion TP ON TP.id_tipo_transaccion = T.tipo_transaccion_id_tipo_transaccion
                     where 
                         T.inversor_cuit = %s"""
             cursor.execute(query, id_inversor)
@@ -87,7 +86,7 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
 
             if rows:
                 return [transaccion.Transaccion(row[0], row[1], row[2], row[3], None, None,
-                        accion.Accion(row[4],row[5],None,None,None,None,None,None,None,None,None), row[6]) for row in rows]
+                        accion.Accion(row[4],row[5],None,None,None,None,None,None,None,None,None), tipoTransaccion.TipoTransaccion(row[6],row[7],None)) for row in rows]
             else:
                 return None
         except mysql.connector.Error as err:
