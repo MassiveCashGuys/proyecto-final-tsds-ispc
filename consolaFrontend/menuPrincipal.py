@@ -7,7 +7,7 @@ def menu_principal():
     print(f'2- Vender Acciones.')
     print(f'3- Ver Saldo.')
     print(f'4- Historial de Transacciones.')
-    print(f'5- Opción.')
+    print(f'5- Rendimiento de Cuenta.')
     print(f'6- Cerrar sesión y salir del sistema.')
 
 
@@ -35,13 +35,17 @@ def mostrar_menu_principal(inversor):
         elif opcion == 4:
             print(f"  *** Historial de transacciones ***")
             controllerTransaccion.listar_transacciones(inversor)
-            input("  Presiona cualquier tecla para continuar...")
-            
+            input("  Presiona cualquier tecla para continuar...") 
 
         elif opcion == 5:
-            print(f" Opción 5 - en progreso de codificacion...")
+            print(f"\n  *** Rendimiento de cuenta ***")
+            print("\nEstas son todas las compras: ")
+            print("\n")
+
+            controllerTransaccion.listar_compras(inversor)  # Obtener lista de transacciones
+
             input("  Presiona cualquier tecla para continuar...")
-            break
+            
 
         elif opcion == 6:
             print(f"Saliendo del programa.")
