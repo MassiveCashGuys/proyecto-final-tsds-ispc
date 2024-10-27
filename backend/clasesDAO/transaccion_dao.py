@@ -72,7 +72,8 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
                         T.cantidad_acciones,
                         T.precio,                        
                         A.id_accion,
-                        A.simbolo,  
+                        A.simbolo,
+                        A.nombre,  
                         T.tipo_transaccion_id_tipo_transaccion, 
                         TP.nombre                
                     FROM 
@@ -86,7 +87,7 @@ class Transaccion_Dao(interfazDao.DataAccesDao):
 
             if rows:
                 return [transaccion.Transaccion(row[0], row[1], row[2], row[3], None, None,
-                        accion.Accion(row[4],row[5],None,None,None,None,None,None,None,None,None), tipoTransaccion.TipoTransaccion(row[6],row[7],None)) for row in rows]
+                        accion.Accion(row[4],row[5],row[6],None,None,None,None,None,None,None,None), tipoTransaccion.TipoTransaccion(row[7],row[8],None)) for row in rows]
             else:
                 return None
         except mysql.connector.Error as err:
