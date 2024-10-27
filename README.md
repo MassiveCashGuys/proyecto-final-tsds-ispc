@@ -14,11 +14,11 @@ Subimos por separado los archivos de las imágenes del modelo relacional y el mo
 
 ## Segunda Etapa:
 
-**Programación:**
+**Programación:** [Link a la Carpeta](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/tree/back/documentaci%C3%B3n/Programacion)
 
-**Base de Datos:**
+**Base de Datos:** [Link a la Carpeta](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/tree/back/documentaci%C3%B3n/BaseDeDatos)
 
-**Competencias Comunicacionales II:**
+**Competencias Comunicacionales II:** [Link a la Carpeta]()
 
 ---
 

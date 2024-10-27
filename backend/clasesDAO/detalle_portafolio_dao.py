@@ -60,20 +60,36 @@ class Detalle_Portafolio_Dao:
             cursor = conn.cursor()
 
             query = """	
-	                     Select DP.id_detalle_portafolio, SUM(DP.cantidad_acciones_compradas) as cantidad_acciones_compradas,
-                       DP.precio_por_accion,DP.fecha_compra, A.id_accion, A.simbolo, A.nombre, A.cantidad, A.precio_venta_actual, A.minimo_diario,
-                       A.maximo_diario, DP.portafolio_id_portafolio   
-                       FROM detalle_portafolio as DP
-	                     INNER JOIN accion as A ON DP.accion_id_accion = A.id_accion
-                       where DP.portafolio_id_portafolio = %s 
-                       GROUP BY A.simbolo
+	                    Select
+                            DP.id_detalle_portafolio, 
+                            SUM(DP.cantidad_acciones_compradas) as cantidad_acciones_compradas,
+                            DP.precio_por_accion,DP.fecha_compra, 
+                            A.id_accion, 
+                            A.simbolo, 
+                            A.nombre, 
+                            A.cantidad, 
+                            A.precio_venta_actual, 
+                            A.minimo_diario,
+                            A.maximo_diario, 
+                            DP.portafolio_id_portafolio   
+                        FROM 
+                            detalle_portafolio as DP
+	                    INNER JOIN 
+                            accion as A 
+                        ON 
+                            DP.accion_id_accion = A.id_accion
+                        where 
+                            DP.portafolio_id_portafolio = %s 
+                        GROUP BY A.simbolo
                     """
             cursor.execute(query,
                            id_object
                            )
             rows = cursor.fetchall()
             if rows:
-                return [detallePortafolio.DetallePortafolio(row[0], row[1], row[2], row[3], accion.Accion(row[4], row[5], row[6], row[7], row[8], None, None, row[9], row[10], None, None), row[11]) for row in rows]
+                return [detallePortafolio.DetallePortafolio(row[0], row[1], row[2], row[3], 
+                        accion.Accion(row[4], row[5], row[6], row[7], row[8], None, None, row[9], row[10], None, None), 
+                        row[11]) for row in rows]
             else:
                 return None
 
