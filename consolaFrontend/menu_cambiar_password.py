@@ -1,28 +1,45 @@
 from controllers import controllerUsuario
-import validadorDato.ValidacionDatos
-from negocio import servicioReglasNegocio
-
+from validadorDato import ValidacionDatos 
 
 
 def menu_cambiar_contraseña():
-    print("********Cambiar Contraseña********")
+    print("**************************************")
+    print("******** Modificar Contraseña ********")
+    print("**************************************")
     
-    email = input("Ingrese el correo con el cual se registró: ")
-    usuario_recuperado = controllerUsuario.recuperar_usuario(email)
+    email = solicitar_email()
+    usuario = controllerUsuario.recuperar_usuario(email)
     
-    if usuario_recuperado:
-        contraseña_actual = input("Ingrese su contraseña actual: ")
-        
-        if controllerUsuario.verificar_contraseña_actual(usuario_recuperado["usuario"], contraseña_actual):
-            print("Contraseña actual verificada. Ahora puede ingresar una nueva contraseña.")
-            
-            nueva_contraseña = input("Ingrese una nueva contraseña: ")
-            
-            contraseña_encriptada = servicioReglasNegocio.crear_encriptacion_password(nueva_contraseña)
-            controllerUsuario.actualizar_contraseña(usuario_recuperado["usuario"], contraseña_encriptada)
-            
-            print("¡Contraseña cambiada exitosamente!")
-        else:
-            print("La contraseña actual es incorrecta.")
+    if not usuario:
+        print("******** El email ingresado es incorrecto ********")
+        return
+    
+    contraseña_actual = solicitar_contraseña_actual(usuario)
+    if not contraseña_actual:
+        return  
+    
+    nueva_contraseña = solicitar_nueva_contraseña()
+    if nueva_contraseña:
+        controllerUsuario.actualizar_contraseña(usuario, nueva_contraseña)
+        print("****************************************************")
+        print("******** ¡Contraseña cambiada exitosamente! ********")
+        print("****************************************************")
+
+
+def solicitar_email():
+    return input("Ingrese el correo con el cual se registró: ")
+
+def solicitar_contraseña_actual(usuario):
+    contraseña_actual = input("Ingrese su contraseña actual: ")
+    if not ValidacionDatos.verificar_contraseña_actual(usuario, contraseña_actual):
+        print("******** La contraseña actual es incorrecta ********")
+        return None
+    return contraseña_actual
+
+def solicitar_nueva_contraseña():
+    nueva_contraseña = input("Ingrese una nueva contraseña: ")
+    if ValidacionDatos.pw_es_valido(nueva_contraseña):
+        return nueva_contraseña
     else:
-        print("El email ingresado es incorrecto.")
+        print("La contraseña debe tener entre 8 y 16 caracteres y contener letras, números o símbolos especiales.")
+        return None
