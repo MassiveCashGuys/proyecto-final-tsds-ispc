@@ -20,7 +20,7 @@ def mostrar_menu_vender_acciones(inversor):
         if verificar_acciones_disponibles(cantidad_acciones_disponibles, cantidad_a_vender):
             accion_portafolio.get_accion_id_accion().set_cantidad(
                 accion_portafolio.get_accion_id_accion().get_cantidad() + cantidad_a_vender)
-            print(accion_portafolio.get_accion_id_accion().get_cantidad())
+          
                  
           
             nueva_transaccion = transaccion.Transaccion(
@@ -41,6 +41,7 @@ def mostrar_menu_vender_acciones(inversor):
                         
              
             controllerPortafolio.actualizar_saldo_portafolio(inversor.get_portafolio())
+            print(f"La transacción se ha registrado exitosamente. Su nuevo saldo es de ${inversor.get_portafolio().get_saldo_actual()}")
             
 
             break

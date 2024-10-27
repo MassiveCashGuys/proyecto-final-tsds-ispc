@@ -8,7 +8,7 @@ from negocio import detallePortafolio
 def menu_accion_portafolio(inversor) -> detallePortafolio.DetallePortafolio:
 
     id_portafolio_user = (inversor.get_portafolio().get_id_portafolio())
-    print(f'inversor: {inversor.get_portafolio().get_saldo_actual()}')
+   
     lista_acciones_portafolio = controllerDetallePortafolio.obtener_acciones_portafolio(
         id_portafolio_user)
     
