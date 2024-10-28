@@ -10,7 +10,7 @@
 
 ## Archivo SQL con las consultas DML:
 
-[Link al archivo]()
+[Link al archivo](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/blob/main/documentaci%C3%B3n/BaseDeDatos/querys.sql)
 
 ## Archivo PDF que contenga:
 
