@@ -6,7 +6,7 @@
 
 ## Archivo SQL con las consultas DDL:
 
-[Link al archivo](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/blob/back/documentaci%C3%B3n/BaseDeDatos/Base%20de%20datos%20ArgBroker.sql)
+[Link al archivo](https://github.com/MassiveCashGuys/proyecto-final-tsds-ispc/blob/main/documentaci%C3%B3n/BaseDeDatos/estructura.sql)
 
 ## Archivo SQL con las consultas DML:
 
