@@ -30,6 +30,7 @@ class Detalle_Portafolio_Dao:
 
             conn.commit()
             if cursor.rowcount == 1:
+                print("Transacción se realizo con exito!!!")
                 return True
             else:
                 return False

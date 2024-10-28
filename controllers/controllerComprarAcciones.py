@@ -28,7 +28,7 @@ def mostrar_menu_comprar_acciones(inversor):
             print("Por favor, ingrese una cantidad menor de acciones.")
 
     accion.set_cantidad(accion.get_cantidad() - cantidad_comprada)
-    print(accion.get_cantidad())
+    
     nueva_transaccion = transaccion.Transaccion(
         None,
         servicioReglasNegocio.definir_fecha_actual(
@@ -47,7 +47,7 @@ def mostrar_menu_comprar_acciones(inversor):
         inversor.get_portafolio().get_id_portafolio())
     portafolio_actual.set_saldo_actual(portafolio_actual.get_saldo_actual(
     ) - (accion.get_precio_venta_actual()*cantidad_comprada) - transaccion_creada.get_comision_broker())
-    print(portafolio_actual.get_saldo_actual())
+    print(f'El saldo actual es {portafolio_actual.get_saldo_actual()}')
     controllerPortafolio.actualizar_saldo_portafolio(portafolio_actual)
     controllerDetallePortafolio.crear_detalle_portafolio(
         detallePortafolio.DetallePortafolio(

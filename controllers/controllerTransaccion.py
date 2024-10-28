@@ -10,50 +10,30 @@ def listar_transacciones(inversor):
     transacciones_x_inversor = transaccionDao.get_by_fk(inversor)
     
     if transacciones_x_inversor:
-        # Imprimir cada transacción y extraer precios
+      
         total = -1
-        index = 1 # indexar las compras
+        index = 1 
         
         for compra in transacciones_x_inversor:
             if int(compra.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()) == 1:
                 print(f"{index}-{mostrar_transaccion(compra)}")
-                print()  # Usar mostrar_compras para cada compra
-                #print("\n")
-                total += compra.get_precio()  # Sumar el precio de las compras 
+                print() 
+                total += compra.get_precio()  
                 index += 1   
                 
         calculo_rendimiento(total)    
     else:
         print("El usuario no tiene historial")
     
-    return transacciones_x_inversor  # Retornar la lista de transacciones
+    return transacciones_x_inversor  
 
-""" def listar_compras(inversor):
-    transaccionDao = transaccion_dao.Transaccion_Dao()
-    transacciones_x_inversor = transaccionDao.get_by_fk(inversor)
-    
-    if transacciones_x_inversor:
-        # Imprimir cada transacción y extraer precios
-        total = -1
-        index = 1 # indexar las compras
-        
-        for compra in transacciones_x_inversor:
-            if int(compra.get_tipo_transaccion_id_tipo_transaccion().get_id_tipo_transaccion()) == 1:
-                print(f"{index}-{mostrar_transaccion(compra)}")
-                print()  # Usar mostrar_compras para cada compra
-                #print("\n")
-                total += compra.get_precio()  # Sumar el precio de las compras 
-                index += 1   
-                
-    calculo_rendimiento(total)    
-    return transacciones_x_inversor  # Retorna solo las compras-lista """
 
 def calculo_rendimiento(total):
 
     if total > -1:
         print(f"\nEl total de acciones compradas es de: {total}") 
 
-        porcentajeAumento = total * 0.15 # Aumento del 15% de las transacciones simulndo valor actual
+        porcentajeAumento = total * 0.15 
         accionesValorActual = total + porcentajeAumento
         rendimiento = (accionesValorActual-total)/total*100
         print(f"\nTus acciones valen ahora: {accionesValorActual}") 

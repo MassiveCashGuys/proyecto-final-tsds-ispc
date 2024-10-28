@@ -14,8 +14,8 @@ def cargar_menu_registro_inversor():
 
 def crear_inversor(inversor):
 
-    userDao = usuario_dao.Usuario_Dao()
-    userDao.create(inversor.get_user())
+    """  userDao = usuario_dao.Usuario_Dao()
+    userDao.create(inversor.get_user()) """
     inversorDao = inversor_dao.InversorDao()
     updateInversor = inversorDao.create(inversor)
     updatePortafolio = controllerPortafolio.obteder_portafolio(

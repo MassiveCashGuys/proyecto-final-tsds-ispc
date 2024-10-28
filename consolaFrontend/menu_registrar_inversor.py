@@ -1,6 +1,6 @@
 from controllers import controllerTipoDocumento, controllerPortafolio,controllerTipoInversor, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
 from consolaFrontend import menu_tipo_documento, menu_tipos
-from negocio import servicioReglasNegocio, usuario, inversor, tipoInversor
+from negocio import portafolio, servicioReglasNegocio, usuario, inversor, tipoInversor
 import validadorDato.ValidacionDatos
 
 
@@ -37,7 +37,7 @@ def solicitar_datos_inversor():
         if confirmar_datos():
                 nuevo_usuario = usuario.Usuario(email, pasHas['password_has'], 2)
                 #nuevo_portafolio = controllerPortafolio.crear_portafolio()
-                nuevoInversor = inversor.Inversor(cuit, numero_documento, nombre, apellido, None, nuevo_tipo_inversor, nuevo_tipo_documento, nuevo_usuario)
+                nuevoInversor = inversor.Inversor(cuit, numero_documento, nombre, apellido, portafolio.Portafolio(None,0,servicioReglasNegocio.definir_fecha_actual(servicioReglasNegocio.formato_fecha())), nuevo_tipo_inversor, nuevo_tipo_documento, nuevo_usuario)
                 return controllerRegistrarInversor.crear_inversor(nuevoInversor)
         else:
                 print("\nIngrese los datos nuevamente.\n")
