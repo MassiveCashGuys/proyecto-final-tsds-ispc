@@ -1,4 +1,3 @@
-from operator import index
 from backend.clasesDAO import transaccion_dao
 
 def crear_transaccion(transaccion):

@@ -1,6 +1,6 @@
 from consolaFrontend import menu_tipo_documento
 from consolaFrontend import menu_registrar_inversor
-from backend.clasesDAO import inversor_dao, usuario_dao
+from backend.clasesDAO import inversor_dao
 from controllers import controllerPortafolio
 
 

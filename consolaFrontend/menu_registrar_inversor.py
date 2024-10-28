@@ -1,6 +1,6 @@
-from controllers import controllerTipoDocumento, controllerPortafolio,controllerTipoInversor, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
-from consolaFrontend import menu_tipo_documento, menu_tipos
-from negocio import portafolio, servicioReglasNegocio, usuario, inversor, tipoInversor
+from controllers import controllerTipoDocumento,controllerTipoInversor, controllerRegistrarInversor
+from consolaFrontend import menu_tipo_documento
+from negocio import portafolio, servicioReglasNegocio, usuario, inversor
 import validadorDato.ValidacionDatos
 
 

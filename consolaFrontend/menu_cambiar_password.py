@@ -1,5 +1,4 @@
 from controllers import controllerUsuario
-from negocio import servicioReglasNegocio
 from validadorDato import ValidacionDatos
 
 

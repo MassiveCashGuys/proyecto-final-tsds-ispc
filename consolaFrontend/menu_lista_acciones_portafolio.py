@@ -1,6 +1,5 @@
 # from controllers import controllerAccion
 from controllers import controllerDetallePortafolio
-from negocio import accion
 from negocio import detallePortafolio
 
 

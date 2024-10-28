@@ -1,7 +1,5 @@
 from consolaFrontend.menu_inicio_sesion import menu_inicio_login
-from controllers import controllerInversor, controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
-from negocio import usuario, servicioReglasNegocio
-from backend.clasesDAO.usuario_dao import Usuario_Dao
+from controllers import controllerInversor, controllerMenuPrincipal, controllerRegistrarInversor
 from consolaFrontend import menu_recuperar_password, menu_cambiar_password
 
 def recuperar_contraseña():

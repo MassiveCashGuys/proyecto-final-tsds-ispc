@@ -1,4 +1,3 @@
-from negocio import tipoDocumento
 def menu_tipo_documento(titulo, moduloController):
     print(f"*******{titulo}*******")
     lista_tipo =  moduloController.obtener_lista_tipo()

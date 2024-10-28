@@ -1,7 +1,7 @@
 
 from consolaFrontend import menu_lista_acciones
 from controllers import controllerAccion, controllerDetallePortafolio, controllerPortafolio, controllerTransaccion
-from negocio import detallePortafolio, portafolio, transaccion, servicioReglasNegocio, tipoTransaccion
+from negocio import detallePortafolio,  transaccion, servicioReglasNegocio, tipoTransaccion
 
 
 def verificar_saldo(saldo_actual_portafolio, total_del_valor_compra):

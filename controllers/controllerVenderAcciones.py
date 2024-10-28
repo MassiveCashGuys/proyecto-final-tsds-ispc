@@ -1,7 +1,7 @@
 # from consolaFrontend import menu_lista_acciones
 from consolaFrontend import menu_lista_acciones_portafolio
-from controllers import controllerAccion, controllerDetallePortafolio, controllerPortafolio, controllerTransaccion
-from negocio import detallePortafolio, portafolio, transaccion, servicioReglasNegocio, tipoTransaccion, accion
+from controllers import  controllerPortafolio, controllerTransaccion
+from negocio import transaccion, servicioReglasNegocio, tipoTransaccion
 
 
 def verificar_acciones_disponibles(cantidad_acciones_disponibles, cantidad_a_vender):

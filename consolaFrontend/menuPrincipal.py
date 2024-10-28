@@ -1,4 +1,4 @@
-from controllers import controllerComprarAcciones, controllerVenderAcciones, controllerRegistrarInversor, controllerPortafolio, controllerTransaccion
+from controllers import controllerComprarAcciones, controllerVenderAcciones,  controllerPortafolio, controllerTransaccion
 
 
 def menu_principal():
