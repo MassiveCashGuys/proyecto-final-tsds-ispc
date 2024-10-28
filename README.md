@@ -34,6 +34,16 @@ ISPC Cba, como broker autorizado, busca ofrecer una herramienta de simulación f
 
 ---
 
+## Alcance
+
+* Simulación de Transacciones: Permitir la compra y venta simulada de acciones en el MERVAL, con precios de referencia actualizados regularmente.
+* Gestión de Portafolio: Funcionalidad para que los usuarios visualicen el desempeño de su portafolio de inversiones simulado, incluyendo valores actuales de sus acciones.
+* Historial de Transacciones: Registro detallado de todas las transacciones simuladas (compra, venta) realizadas por el usuario, mostrando atributos como fecha, precio, cantidad, comisión, y tipo de acción.
+* Análisis de Rendimiento: Proveer gráficos y estadísticas que reflejen el rendimiento histórico y actual del portafolio, calculando ganancias y pérdidas potenciales.
+* Simulación de Comisiones y Costos: Incluir simulación de comisiones y costos asociados a cada transacción para que el usuario entienda los gastos relacionados con la compra y venta de acciones.
+* Educación Financiera: Sección con materiales educativos sobre el funcionamiento del mercado de valores y consejos para invertir de manera informada.
+* Evaluación de Riesgo: Herramientas y métricas para evaluar el riesgo asociado a diferentes transacciones.
+
 ## Autores
 
 - **Marini Alan**  
