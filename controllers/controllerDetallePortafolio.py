@@ -8,7 +8,7 @@ def crear_detalle_portafolio(detallePortafolio):
 
 
 def obtener_acciones_portafolio(fk):
-    # accionDao = accion_dao.AccionDao()
+  
     detallePortafolioDao = detalle_portafolio_dao.Detalle_Portafolio_Dao()
-    # return accionDao.getAll()
+ 
     return detallePortafolioDao.get_by_fk(fk)

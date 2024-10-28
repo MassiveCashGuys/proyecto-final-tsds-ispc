@@ -2,7 +2,7 @@ from consolaFrontend.menu_inicio_sesion import menu_inicio_login
 from controllers import controllerInversor, controllerMenuPrincipal, controllerRegistrarInversor, controllerInicioSesion, controllerUsuario
 from negocio import usuario, servicioReglasNegocio
 from backend.clasesDAO.usuario_dao import Usuario_Dao
-from consolaFrontend import menu_recuperar_password
+from consolaFrontend import menu_recuperar_password, menu_cambiar_password
 
 def recuperar_contraseña():
     contraseña=""
@@ -38,10 +38,12 @@ def mostar_menu_inicio_sesion():
             menu_recuperar_password.menu_recuperar_contraseña()
              
         elif opcion == 4:
-            print(f"Modificar mi contraseña.")
+            menu_cambiar_password.menu_cambiar_contraseña()
+
         elif opcion == 5:
             print(f"Saliendo del programa.")
             break
+        
         else:
             print("Opción no válida. Por favor, elija una opción del 1 al 5.")
 

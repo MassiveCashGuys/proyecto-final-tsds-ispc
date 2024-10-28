@@ -11,7 +11,7 @@ def verificar_saldo(saldo_actual_portafolio, total_del_valor_compra):
 def mostrar_menu_comprar_acciones(inversor):
     accion = menu_lista_acciones.menu_accion()
     portafolio_del_inversor = controllerPortafolio.obteder_portafolio(
-        inversor.get_portafolio())
+        inversor.get_portafolio().get_id_portafolio())
 
     saldo_actual_portafolio = portafolio_del_inversor.get_saldo_actual()
 
@@ -28,7 +28,7 @@ def mostrar_menu_comprar_acciones(inversor):
             print("Por favor, ingrese una cantidad menor de acciones.")
 
     accion.set_cantidad(accion.get_cantidad() - cantidad_comprada)
-    print(accion.get_cantidad())
+    
     nueva_transaccion = transaccion.Transaccion(
         None,
         servicioReglasNegocio.definir_fecha_actual(
@@ -44,16 +44,16 @@ def mostrar_menu_comprar_acciones(inversor):
         nueva_transaccion)
     controllerAccion.actualizar_accion(accion)
     portafolio_actual = controllerPortafolio.obteder_portafolio(
-        inversor.get_portafolio())
+        inversor.get_portafolio().get_id_portafolio())
     portafolio_actual.set_saldo_actual(portafolio_actual.get_saldo_actual(
     ) - (accion.get_precio_venta_actual()*cantidad_comprada) - transaccion_creada.get_comision_broker())
-    print(portafolio_actual.get_saldo_actual())
+    print(f'El saldo actual es {portafolio_actual.get_saldo_actual()}')
     controllerPortafolio.actualizar_saldo_portafolio(portafolio_actual)
-    """ nuevoDetallePortafolio=portafolio.Detalle_Portafolio(portafolio_actual.get_id_portafolio(), transaccion_creada.get_id_transaccion(), accion.get_cantidad()) """
-    controllerDetallePortafolio.crear_detalle_portafolio(detallePortafolio.DetallePortafolio(
+    controllerDetallePortafolio.crear_detalle_portafolio(
+        detallePortafolio.DetallePortafolio(
         None,
         transaccion_creada.get_cantidad_acciones(),
         accion.get_precio_venta_actual(),
         transaccion_creada.get_fecha_hora(),
         accion,
-        inversor.get_portafolio()))
+        inversor.get_portafolio().get_id_portafolio()))

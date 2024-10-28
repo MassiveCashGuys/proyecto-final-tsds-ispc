@@ -20,8 +20,9 @@ def mostrar_menu_vender_acciones(inversor):
         if verificar_acciones_disponibles(cantidad_acciones_disponibles, cantidad_a_vender):
             accion_portafolio.get_accion_id_accion().set_cantidad(
                 accion_portafolio.get_accion_id_accion().get_cantidad() + cantidad_a_vender)
-            print(accion_portafolio.get_accion_id_accion().get_cantidad())
-
+          
+                 
+          
             nueva_transaccion = transaccion.Transaccion(
                 None,
                 servicioReglasNegocio.definir_fecha_actual(
@@ -35,9 +36,17 @@ def mostrar_menu_vender_acciones(inversor):
                 tipoTransaccion.TipoTransaccion(2, None, None))
             transaccion_creada = controllerTransaccion.crear_transaccion(
                 nueva_transaccion)
+            
+            inversor.get_portafolio().set_saldo_actual(( (cantidad_a_vender * accion_portafolio.get_accion_id_accion().get_precio_venta_actual()) -(servicioReglasNegocio.calcular_comision_broker(cantidad_a_vender*accion_portafolio.get_accion_id_accion().get_precio_venta_actual())) + inversor.get_portafolio().get_saldo_actual()))
+                        
+             
+            controllerPortafolio.actualizar_saldo_portafolio(inversor.get_portafolio())
+            print(f"La transacción se ha registrado exitosamente. Su nuevo saldo es de ${inversor.get_portafolio().get_saldo_actual()}")
+            
 
             break
         else:
             print(
                 f"Acciones insuficientes. Su cantidad de acciones disponible es {cantidad_acciones_disponibles} y el total que queres vender es {cantidad_a_vender}.")
             print("Por favor, ingrese una cantidad menor de acciones.")
+    

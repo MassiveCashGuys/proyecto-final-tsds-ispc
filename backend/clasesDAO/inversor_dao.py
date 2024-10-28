@@ -8,28 +8,47 @@ class InversorDao(interfazDao.DataAccesDao):
     def __init__(self):
         pass
     
-    def create(self,objectInversor):
-      
+    def create(self, objectInversor)->inversor.Inversor:
          try:
              conn = conexion.connect_to_db()
              cursor = conn.cursor()
-             query=" INSERT INTO inversor (cuit, numero_documento, nombre, apellido, id_portafolio, id_tipo_inversor, id_tipo_documento, id_usuario ) VALUES (%s, %s,%s, %s,%s, %s,%s, %s)"
-             cursor.execute(query,(objectInversor.get_cuit(),
-                                    objectInversor.get_numero_documento(),
-                                    objectInversor.get_nombre(),
-                                    objectInversor.get_apellido(),
-                                    objectInversor.get_portafolio().get_id_portafolio(),
-                                    objectInversor.get_tipo_inversor().get_id_tipo_inversor(),
-                                    objectInversor.get_tipo_documento().get_id_tipo_documento(),
-                                    objectInversor.get_user().get_id_user()))
+             cursor.execute("START TRANSACTION;")
+             cursor.execute("""
+                    INSERT INTO usuario (id_user, password, id_perfil) 
+                    VALUES (%s, %s, %s);
+                """, (objectInversor.get_user().get_id_user(), objectInversor.get_user().get_password(), objectInversor.get_user().get_id_perfil()))
+
+             id_usuario = objectInversor.get_user().get_id_user() 
+             cursor.execute("""
+                    INSERT INTO portafolio (saldo_actual, fecha_inicio) 
+                    VALUES (%s, %s);
+                """, (objectInversor.get_portafolio().get_saldo_actual(), objectInversor.get_portafolio().get_fecha_inicio())) 
+             
+             id_portafolio = cursor.lastrowid  
+             cursor.execute("""
+                INSERT INTO inversor (cuit, numero_documento, nombre, apellido, id_portafolio, id_tipo_inversor, id_tipo_documento, id_usuario) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+            """, (objectInversor.get_cuit(),
+                  objectInversor.get_numero_documento(),
+                  objectInversor.get_nombre(),
+                  objectInversor.get_apellido(), 
+                  id_portafolio,
+                  objectInversor.get_tipo_inversor().get_id_tipo_inversor(),
+                  objectInversor.get_tipo_documento().get_id_tipo_documento(),
+                  id_usuario))
+             
              conn.commit()
              if cursor.rowcount == 1:
                   lastInversor = self.get(objectInversor.get_cuit())
+                  print(f'Los datos se guardaron correctamente.')
                   return lastInversor
              else:
                 return False
+        
          except mysql.connector.Error as err:
-             print("err.")
+    
+             print(f"Error: {err}")             
+             conexion.rollback()
              raise err 
 
  
@@ -113,4 +132,4 @@ class InversorDao(interfazDao.DataAccesDao):
              raise err 
         
     
-
+    

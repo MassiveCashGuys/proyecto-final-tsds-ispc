@@ -1,15 +1,12 @@
 import re
 from backend.clasesDAO import usuario_dao
 from backend.clasesDAO import inversor_dao
-
+from controllers import controllerUsuario
+from negocio import servicioReglasNegocio
 
 def pw_es_valido(password):
     return 8 <= len(password) <= 16 and re.search(r'[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]', password) is not None
 
-"""
-def validacion_existencia_datos(object_dao,valor_a_validar):
-    return object_dao.get(valor_a_validar)
-"""
 
 def tipo_de_dato(funcion_de_tipo,variable_de_tipo):
 
@@ -28,6 +25,7 @@ def extraccion_num_documento(cuit):
 def validar_formato_email(email):
     patron = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|org|net|edu|gov|mil|info|co|ar|mx|es|it|fr|uk|io)$'
     return re.match(patron, email) is not None
+
 
 def valida_existencia_mail_bd(email):
     user_dao = usuario_dao.Usuario_Dao()
@@ -51,4 +49,5 @@ def valida_existencia_cuit_en_db(cuit):
         return True
     else:
         return False
+
 

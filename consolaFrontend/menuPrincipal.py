@@ -43,7 +43,7 @@ def mostrar_menu_principal(inversor):
             print("\nEstas son todas las compras: ")
             print("\n")
 
-            controllerTransaccion.listar_compras(inversor)  # Obtener lista de transacciones
+            controllerTransaccion.listar_transacciones(inversor)  # Obtener lista de transacciones
 
             input("  Presiona cualquier tecla para continuar...")
             
