@@ -30,6 +30,7 @@ class Detalle_Portafolio_Dao:
 
             conn.commit()
             if cursor.rowcount == 1:
+                print("Transacción se realizo con exito!!!")
                 return True
             else:
                 return False
@@ -53,14 +54,14 @@ class Detalle_Portafolio_Dao:
             print("err.")
             raise err
 
-    def get_by_fk(self, id_object) -> list:
+    def get_by_fk(self, id_object):
 
         try:
             conn = conexion.connect_to_db()
             cursor = conn.cursor()
 
             query = """	
-	                    Select
+	                     Select
                             DP.id_detalle_portafolio, 
                             SUM(DP.cantidad_acciones_compradas) as cantidad_acciones_compradas,
                             DP.precio_por_accion,DP.fecha_compra, 
@@ -75,19 +76,20 @@ class Detalle_Portafolio_Dao:
                         FROM 
                             detalle_portafolio as DP
 	                    INNER JOIN 
-                            accion as A 
+                             accion as A 
                         ON 
                             DP.accion_id_accion = A.id_accion
                         where 
-                            DP.portafolio_id_portafolio = %s 
+                            DP.portafolio_id_portafolio = %s
                         GROUP BY A.simbolo
                     """
             cursor.execute(query,
-                           id_object
+                           (id_object,)
                            )
             rows = cursor.fetchall()
             if rows:
-                return [detallePortafolio.DetallePortafolio(row[0], row[1], row[2], row[3], 
+                return [detallePortafolio.DetallePortafolio(row[0], row[1], row[2],
+                        row[3], 
                         accion.Accion(row[4], row[5], row[6], row[7], row[8], None, None, row[9], row[10], None, None), 
                         row[11]) for row in rows]
             else:

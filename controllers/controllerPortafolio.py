@@ -23,3 +23,8 @@ def obteder_portafolio(idPortafolio):
 def actualizar_saldo_portafolio(portafolio):
     nuevo_portafolio_dao = portafolio_dao.Portafolio_Dao()
     return nuevo_portafolio_dao.update(portafolio.get_id_portafolio(), portafolio.get_saldo_actual())
+
+
+def crear_objeto_portafolio()->portafolio.Portafolio:
+    nuevoPortafolio = portafolio.Portafolio(None,0, servicioReglasNegocio.definir_fecha_actual(servicioReglasNegocio.formato_fecha()))
+    return nuevoPortafolio
